@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviso Legal — Coches Benejúzar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-main: #FAF9F6;
+    --bg-card: #FFFFFF;
+    --text-primary: #1C1917;
+    --text-secondary: #57534E;
+    --accent-red: #0B1F3A;
+    --border-color: #E7E5E4;
+    --font-heading: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 249, 246, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+  }
+
+  .nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .logo span {
+    color: var(--accent-red);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--text-primary);
+  }
+
+  .lang-switcher {
+    display: flex;
+    gap: 6px;
+    background: #EAE8E3;
+    padding: 4px;
+    border-radius: 6px;
+  }
+
+  .lang-btn {
+    border: none;
+    background: transparent;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active {
+    background: #FFFFFF;
+    color: var(--text-primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  main {
+    max-width: 900px;
+    margin: 40px auto 80px;
+    padding: 0 24px;
+  }
+
+  .hero-legal {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+
+  .legal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  }
+
+  .legal-content h2 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    margin: 32px 0 12px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .legal-content h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-content p, .legal-content ul {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .legal-content ul {
+    padding-left: 20px;
+  }
+
+  .legal-content li {
+    margin-bottom: 8px;
+  }
+
+  footer {
+    border-top: 1px solid var(--border-color);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  footer a {
+    color: var(--text-primary);
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .legal-content {
+      padding: 24px;
+    }
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="logo">Coches <span>Benejúzar</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="back-link" 
+         data-es="← Volver al inicio" 
+         data-en="← Back to home" 
+         data-ru="← На главную">← Volver al inicio</a>
+      <div class="lang-switcher">
+        <button class="lang-btn" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('ru')">RU</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero-legal">
+    <div class="eyebrow" data-es="Documentación Legal" data-en="Legal Documentation" data-ru="Юридическая документация">Documentación Legal</div>
+    <h1 data-es="Aviso Legal" data-en="Legal Notice" data-ru="Правовая информация">Aviso Legal</h1>
+    <p class="subtitle" data-es="Información legal y datos identificativos del sitio web" data-en="Legal information and website identification data" data-ru="Юридическая информация и идентификационные данные сайта">Información legal y datos identificativos del sitio web</p>
+  </div>
+
+  <div class="legal-content">
+    <div id="content-es">
+      
+<h2>1. Titular del Sitio Web</h2>
+<p><strong>Sitio Web:</strong> CB Atelier (Coches Benejúzar)</p>
+<p><strong>Razón Social / Nombre Comercial:</strong> Coches Benejúzar</p>
+<p><strong>Dirección:</strong> Avenida del Segura, 3, 03390 Benejúzar, Alicante, España</p>
+<p><strong>Correo Electrónico:</strong> cochesbenejuzar@gmail.com</p>
+<p><strong>Teléfonos de Contacto:</strong> +34 693 461 811 | +34 687 200 438 | +34 865 759 921  </p>
+
+<h2>2. Objeto</h2>
+<p>El presente sitio web tiene por objeto facilitar información general sobre los servicios de tapicería ofrecidos por la empresa, abarcando proyectos de tapicería automotriz, para motocicletas y náutica.</p>
+<p>La información publicada en este sitio web posee un carácter exclusivamente informativo y no constituye una oferta comercial o contractual vinculante.</p>
+
+<h2>3. Propiedad Intelectual e Industrial</h2>
+<p>Todos los contenidos publicados en este sitio web, incluyendo textos, fotografías, logotipos, gráficos, iconos, vídeos, imágenes y elementos de diseño, son propiedad exclusiva del titular del sitio web o cuentan con la correspondiente autorización de uso, salvo que se indique explícitamente lo contrario.</p>
+<p>Queda expresamente prohibida la copia, reproducción, modificación o distribución de cualquier contenido sin la previa autorización por escrito del titular.</p>
+
+<h2>4. Limitación de Responsabilidad</h2>
+<p>El titular del sitio web realiza todos los esfuerzos razonables para garantizar que la información contenida en la web sea precisa y actualizada, aunque no puede garantizar la total ausencia de errores o interrupciones.</p>
+<p>El titular no responderá por los daños o perjuicios que se puedan derivar del uso o la imposibilidad de uso de este sitio web.</p>
+
+<h2>5. Enlaces Externos</h2>
+<p>Este sitio web puede contener enlaces hacia plataformas y redes sociales externas (como Facebook e Instagram). El titular no asume responsabilidad alguna sobre los contenidos, políticas de privacidad o prácticas de dichos sitios externos.</p>
+
+<h2>6. Legislación Aplicable y Jurisdicción</h2>
+<p>El presente Aviso Legal se rige por la legislación española. Para la resolución de cualquier controversia relacionada con el sitio web, las partes se someten a los juzgados y tribunales competentes de España.</p>
+
+    </div>
+    <div id="content-en" style="display:none;">
+      
+<h2>1. Website Owner</h2>
+<p><strong>Website:</strong> CB Atelier (Coches Benejúzar)</p>
+<p><strong>Business Name:</strong> Coches Benejúzar</p>
+<p><strong>Address:</strong> Avenida del Segura, 3, 03390 Benejúzar, Alicante, Spain</p>
+<p><strong>Email:</strong> cochesbenejuzar@gmail.com</p>
+<p><strong>Telephone:</strong> +34 693 461 811 | +34 687 200 438 | +34 865 759 921</p>
+
+<h2>2. Purpose</h2>
+<p>This website provides information about the upholstery services offered by the company, including automotive, motorcycle and marine upholstery.</p>
+<p>The information published on this website is for informational purposes only and does not constitute a contractual offer.</p>
+
+<h2>3. Intellectual Property</h2>
+<p>All content published on this website, including text, photographs, logos, graphics, icons, videos and design elements, is the property of the website owner unless otherwise stated.</p>
+<p>No content may be copied, reproduced or distributed without prior written permission.</p>
+
+<h2>4. Liability</h2>
+<p>The website owner makes every effort to ensure the information is accurate and up to date but cannot guarantee the absence of errors.</p>
+<p>The owner shall not be liable for damages resulting from the use of this website.</p>
+
+<h2>5. External Links</h2>
+<p>This website may contain links to external websites such as Facebook and Instagram. The owner is not responsible for the content or privacy practices of those websites.</p>
+
+<h2>6. Applicable Law</h2>
+<p>This website is governed by Spanish legislation. Any disputes shall be subject to the competent courts of Spain.</p>
+
+    </div>
+    <div id="content-ru" style="display:none;">
+      
+<h2>1. Владелец веб-сайта</h2>
+<p><strong>Веб-сайт:</strong> CB Atelier (Coches Benejúzar)</p>
+<p><strong>Коммерческое наименование:</strong> Coches Benejúzar</p>
+<p><strong>Адрес:</strong> Avenida del Segura, 3, 03390 Benejúzar, Alicante, Испания</p>
+<p><strong>Электронная почта:</strong> cochesbenejuzar@gmail.com</p>
+<p><strong>Телефон:</strong> +34 693 461 811 | +34 687 200 438 | +34 865 759 921</p>
+
+<h2>2. Назначение</h2>
+<p>Данный веб-сайт предоставляет информацию об услугах по перетяжке и обивке, предлагаемых компанией, включая автомобильную, мотоциклетную и морскую обивку.</p>
+<p>Информация, опубликованная на этом сайте, носит исключительно информационный характер и не является договорной офертой.</p>
+
+<h2>3. Интеллектуальная собственность</h2>
+<p>Весь контент, опубликованный на этом сайте, включая тексты, фотографии, логотипы, графику, иконки, видео и элементы дизайна, является собственностью владельца веб-сайта, если не указано иное.</p>
+<p>Копирование, воспроизведение или распространение контента без предварительного письменного разрешения запрещено.</p>
+
+<h2>4. Ответственность</h2>
+<p>Владелец сайта прилагает все усилия для обеспечения точности и актуальности информации, но не может гарантировать полное отсутствие ошибок.</p>
+<p>Владелец не несет ответственности за ущерб, возникший в результате использования данного сайта.</p>
+
+<h2>5. Внешние ссылки</h2>
+<p>Этот сайт может содержать ссылки на внешние платформы, такие как Facebook и Instagram. Владелец не несет ответственности за контент или политику конфиденциальности сторонних ресурсов.</p>
+
+<h2>6. Применимое законодательство</h2>
+<p>Данный веб-сайт регулируется законодательством Испании. Любые споры подлежат рассмотрению в компетентных судах Испании.</p>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Coches Benejúzar — Benejúzar, Alicante, España</p>
+  <p style="margin-top: 10px;">
+    <a href="aviso-legal.html">Aviso Legal</a> | 
+    <a href="politica-de-privacidad.html">Privacidad</a> | 
+    <a href="politica-de-cookies.html">Cookies</a> | 
+    <a href="terminos-y-condiciones.html">Términos</a> | 
+    <a href="declaracion-de-accesibilidad.html">Accesibilidad</a>
+  </p>
+</footer>
+
+<script>
+  function setLang(lang) {
+    const buttons = document.querySelectorAll('.lang-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    const contentEs = document.getElementById('content-es');
+    const contentEn = document.getElementById('content-en');
+    const contentRu = document.getElementById('content-ru');
+
+    if (contentEs) contentEs.style.display = (lang === 'es') ? 'block' : 'none';
+    if (contentEn) contentEn.style.display = (lang === 'en') ? 'block' : 'none';
+    if (contentRu) contentRu.style.display = (lang === 'ru') ? 'block' : 'none';
+
+    if (lang === 'es' && buttons[0]) buttons[0].classList.add('active');
+    if (lang === 'en' && buttons[1]) buttons[1].classList.add('active');
+    if (lang === 'ru' && buttons[2]) buttons[2].classList.add('active');
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const translatedText = el.getAttribute('data-' + lang);
+      if (translatedText) {
+        el.textContent = translatedText;
+      }
+    });
+
+    try {
+      localStorage.setItem('cb_lang', lang);
+    } catch(e) {}
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    let currentLang = 'es';
+    try {
+      const saved = localStorage.getItem('cb_lang');
+      if (['es', 'en', 'ru'].includes(saved)) {
+        currentLang = saved;
+      }
+    } catch(e) {}
+    setLang(currentLang);
+  });
+</script>
+
+</body>
+</html>

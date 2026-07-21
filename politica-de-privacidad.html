@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad — Coches Benejúzar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-main: #FAF9F6;
+    --bg-card: #FFFFFF;
+    --text-primary: #1C1917;
+    --text-secondary: #57534E;
+    --accent-red: #0B1F3A;
+    --border-color: #E7E5E4;
+    --font-heading: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 249, 246, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+  }
+
+  .nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .logo span {
+    color: var(--accent-red);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--text-primary);
+  }
+
+  .lang-switcher {
+    display: flex;
+    gap: 6px;
+    background: #EAE8E3;
+    padding: 4px;
+    border-radius: 6px;
+  }
+
+  .lang-btn {
+    border: none;
+    background: transparent;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active {
+    background: #FFFFFF;
+    color: var(--text-primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  main {
+    max-width: 900px;
+    margin: 40px auto 80px;
+    padding: 0 24px;
+  }
+
+  .hero-legal {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+
+  .legal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  }
+
+  .legal-content h2 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    margin: 32px 0 12px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .legal-content h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-content p, .legal-content ul {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .legal-content ul {
+    padding-left: 20px;
+  }
+
+  .legal-content li {
+    margin-bottom: 8px;
+  }
+
+  footer {
+    border-top: 1px solid var(--border-color);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  footer a {
+    color: var(--text-primary);
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .legal-content {
+      padding: 24px;
+    }
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="logo">Coches <span>Benejúzar</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="back-link" 
+         data-es="← Volver al inicio" 
+         data-en="← Back to home" 
+         data-ru="← На главную">← Volver al inicio</a>
+      <div class="lang-switcher">
+        <button class="lang-btn" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('ru')">RU</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero-legal">
+    <div class="eyebrow" data-es="Documentación Legal" data-en="Legal Documentation" data-ru="Юридическая документация">Documentación Legal</div>
+    <h1 data-es="Política de Privacidad" data-en="Privacy Policy" data-ru="Политика конфиденциальности">Política de Privacidad</h1>
+    <p class="subtitle" data-es="Información sobre cómo tratamos y protegemos tus datos personales" data-en="Information on how we handle and protect your personal data" data-ru="Информация о том, как мы обрабатываем и защищаем ваши персональные данные">Información sobre cómo tratamos y protegemos tus datos personales</p>
+  </div>
+
+  <div class="legal-content">
+    <div id="content-es">
+      
+<h2>1. Responsable del Tratamiento</h2>
+<p><strong>Empresa / Razón Social:</strong> Coches Benejúzar</p>
+<p><strong>Dirección:</strong> Avenida del Segura, 3, 03390 Benejúzar, Alicante, España</p>
+<p><strong>Correo Electrónico:</strong> cochesbenejuzar@gmail.com</p>
+<p><strong>Teléfonos:</strong> +34 693 461 811 | +34 687 200 438 | +34 865 759 921</p>
+
+<h2>2. Datos Personales Recopilados</h2>
+<p>A través de nuestro sitio web se pueden recopilar los siguientes datos personales:</p>
+<ul>
+  <li>Nombre y apellidos</li>
+  <li>Dirección de correo electrónico</li>
+  <li>Número de teléfono de contacto</li>
+  <li>Información técnica de navegación e dirección IP</li>
+  <li>Cookies y preferencias de usuario</li>
+</ul>
+
+<h2>3. Finalidad del Tratamiento de Datos</h2>
+<p>Los datos personales recabados se utilizan para las siguientes finalidades:</p>
+<ul>
+  <li>Responder a consultas y solicitudes de los usuarios</li>
+  <li>Facilitar presupuestos e información detallada sobre servicios</li>
+  <li>Contacto telefónico para atención al cliente</li>
+  <li>Mejorar el rendimiento del sitio web y análisis estadístico</li>
+  <li>Medición de rendimiento de campañas cuando exista consentimiento</li>
+</ul>
+
+<h2>4. Base Legítima para el Tratamiento</h2>
+<p>El tratamiento de los datos personales se fundamenta en:</p>
+<ul>
+  <li>El consentimiento otorgado de forma explícita por el usuario</li>
+  <li>El interés legítimo en atender sus solicitudes</li>
+  <li>El cumplimiento de las obligaciones legales aplicables</li>
+</ul>
+
+<h2>5. Conservación de los Datos</h2>
+<p>Los datos personales se conservarán únicamente durante el tiempo estrictamente necesario para cumplir con los fines para los que fueron recogidos o según exija la normativa legal vigente.</p>
+
+<h2>6. Cesión de Datos a Terceros</h2>
+<p>Los datos personales nunca serán vendidos. Únicamente se compartirán con proveedores de servicios esenciales para el funcionamiento del sitio web (como servicios de alojamiento web o analítica) o por requerimiento legal.</p>
+
+<h2>7. Derechos de los Usuarios</h2>
+<p>Los usuarios pueden ejercitar en cualquier momento sus derechos de acceso, rectificación, supresión, limitación del tratamiento, oposición y portabilidad de datos dirigiéndose por correo electrónico a: <strong>cochesbenejuzar@gmail.com</strong>.</p>
+
+<h2>8. Seguridad y Cambios</h2>
+<p>Aplicamos medidas técnicas y organizativas para proteger su información. Esta política puede ser actualizada periódicamente.</p>
+
+    </div>
+    <div id="content-en" style="display:none;">
+      
+<h2>1. Data Controller</h2>
+<p><strong>Business:</strong> Coches Benejúzar</p>
+<p><strong>Address:</strong> Avenida del Segura, 3, 03390 Benejúzar, Alicante, Spain</p>
+<p><strong>Email:</strong> cochesbenejuzar@gmail.com</p>
+<p><strong>Telephone:</strong> +34 693 461 811 | +34 687 200 438 | +34 865 759 921</p>
+
+<h2>2. Personal Data Collected</h2>
+<p>The website may collect the following personal information:</p>
+<ul>
+  <li>Name</li>
+  <li>Email address</li>
+  <li>Telephone number</li>
+  <li>Technical browsing information</li>
+  <li>IP address</li>
+  <li>Cookies</li>
+</ul>
+
+<h2>3. Purpose of Processing</h2>
+<p>Personal information may be processed for the following purposes:</p>
+<ul>
+  <li>Responding to customer enquiries</li>
+  <li>Providing requested information</li>
+  <li>Telephone contact</li>
+  <li>Improving website performance</li>
+  <li>Website analytics</li>
+  <li>Marketing performance measurement where consent has been granted</li>
+</ul>
+
+<h2>4. Legal Basis</h2>
+<p>Data processing is based on user consent, legitimate interest, and compliance with legal obligations.</p>
+
+<h2>5. Data Retention</h2>
+<p>Personal data will only be kept for as long as necessary to fulfil the purposes described or as required by law.</p>
+
+<h2>6. Data Sharing</h2>
+<p>Personal information will not be sold. Data may be shared only with necessary service providers (hosting, analytics) or for legal obligations.</p>
+
+<h2>7. User Rights</h2>
+<p>Users may exercise rights of access, rectification, erasure, restriction, objection, and data portability by emailing: <strong>cochesbenejuzar@gmail.com</strong>.</p>
+
+<h2>8. Security & Changes</h2>
+<p>Reasonable technical measures are implemented to protect personal information. This Privacy Policy may be updated without prior notice.</p>
+
+    </div>
+    <div id="content-ru" style="display:none;">
+      
+<h2>1. Оператор персональных данных</h2>
+<p><strong>Компания:</strong> Coches Benejúzar</p>
+<p><strong>Адрес:</strong> Avenida del Segura, 3, 03390 Benejúzar, Alicante, Испания</p>
+<p><strong>Электронная почта:</strong> cochesbenejuzar@gmail.com</p>
+<p><strong>Телефон:</strong> +34 693 461 811 | +34 687 200 438 | +34 865 759 921</p>
+
+<h2>2. Собираемые персональные данные</h2>
+<ul>
+  <li>Имя и фамилия</li>
+  <li>Адрес электронной почты</li>
+  <li>Номер телефона</li>
+  <li>Техническая информация о просмотре и IP-адрес</li>
+  <li>Файлы cookie</li>
+</ul>
+
+<h2>3. Цели обработки</h2>
+<p>Персональные данные обрабатываются для ответа на запросы клиентов, предоставления расчетной стоимости, улучшения работы сайта и веб-аналитики.</p>
+
+<h2>4. Правовые основания</h2>
+<p>Обработка данных осуществляется на основе согласия пользователя, законных интересов компании и выполнения юридических обязательств.</p>
+
+<h2>5. Срок хранения и передача третьим лицам</h2>
+<p>Данные хранятся только в течение необходимого времени. Персональная информация не продается и может передаваться только техническим провайдерам хостинга и аналитики.</p>
+
+<h2>6. Права пользователей</h2>
+<p>Пользователи могут реализовать свои права на доступ, исправление, удаление и ограничение обработки данных, направив письмо по адресу: <strong>cochesbenejuzar@gmail.com</strong>.</p>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Coches Benejúzar — Benejúzar, Alicante, España</p>
+  <p style="margin-top: 10px;">
+    <a href="aviso-legal.html">Aviso Legal</a> | 
+    <a href="politica-de-privacidad.html">Privacidad</a> | 
+    <a href="politica-de-cookies.html">Cookies</a> | 
+    <a href="terminos-y-condiciones.html">Términos</a> | 
+    <a href="declaracion-de-accesibilidad.html">Accesibilidad</a>
+  </p>
+</footer>
+
+<script>
+  function setLang(lang) {
+    const buttons = document.querySelectorAll('.lang-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    const contentEs = document.getElementById('content-es');
+    const contentEn = document.getElementById('content-en');
+    const contentRu = document.getElementById('content-ru');
+
+    if (contentEs) contentEs.style.display = (lang === 'es') ? 'block' : 'none';
+    if (contentEn) contentEn.style.display = (lang === 'en') ? 'block' : 'none';
+    if (contentRu) contentRu.style.display = (lang === 'ru') ? 'block' : 'none';
+
+    if (lang === 'es' && buttons[0]) buttons[0].classList.add('active');
+    if (lang === 'en' && buttons[1]) buttons[1].classList.add('active');
+    if (lang === 'ru' && buttons[2]) buttons[2].classList.add('active');
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const translatedText = el.getAttribute('data-' + lang);
+      if (translatedText) {
+        el.textContent = translatedText;
+      }
+    });
+
+    try {
+      localStorage.setItem('cb_lang', lang);
+    } catch(e) {}
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    let currentLang = 'es';
+    try {
+      const saved = localStorage.getItem('cb_lang');
+      if (['es', 'en', 'ru'].includes(saved)) {
+        currentLang = saved;
+      }
+    } catch(e) {}
+    setLang(currentLang);
+  });
+</script>
+
+</body>
+</html>
