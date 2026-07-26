@@ -56,7 +56,7 @@
   const galleryGrid = document.getElementById('gallery-grid');
   const loadMoreBtn = document.getElementById('load-more-btn');
 
-  const TOTAL_IMAGES = 400; // Ajusta a tu cantidad total de fotos
+  const TOTAL_IMAGES = 276; // Ajusta a tu cantidad total de fotos
   const BATCH_SIZE = 20;
 
   let currentIndex = 1;
