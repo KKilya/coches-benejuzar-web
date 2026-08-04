@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  COCHES BENÉJUZAR · Landing de entrada (selector de servicios)
+  Archivo único: index.html  ·  HTML + CSS + JS en el mismo fichero
+  ----------------------------------------------------------------------------
+  PUNTOS QUE PUEDES NECESITAR TOCAR (busca la palabra "CONFIGURA"):
+    1. CONFIGURA · URLs de destino .............. bloque <script> (abajo)
+    2. CONFIGURA · Nombres de las imágenes ...... atributos src de los <img>
+    3. CONFIGURA · ID de Google Analytics 4 ..... G-XXXXXXXXXX (en el <head>)
+    4. CONFIGURA · Teléfono y dirección ......... JSON-LD y pie de página
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+
+<!-- ===================== SEO ===================== -->
+<title>Coches Benéjuzar · Car, Boat &amp; Motorbike Upholstery — Convertible Repair</title>
+<meta name="description" content="Coches Benéjuzar, Benejúzar (Alicante): upholstery for cars, boats and motorbikes, and convertible soft top repair and upholstery. Choose the service you need.">
+<meta name="keywords" content="Coches Benéjuzar, tapicería de coches, tapicería de barcos, tapicería de motos, reparación de cabrios, capota cabrio, Benejúzar, Alicante">
+<link rel="canonical" href="https://cbdeteiling.es/">
+
+<!--
+  NOTA SOBRE INDEXACIÓN
+  Esta página está preparada para posicionar en SEO local (por eso lleva title,
+  description y datos estructurados). Si prefieres que Google NO la indexe y
+  que solo sirva como puerta de entrada desde Google Maps, descomenta la línea
+  siguiente. Google Maps seguirá funcionando igual.
+-->
+<!-- <meta name="robots" content="noindex, follow"> -->
+
+<!-- ===================== Open Graph / redes ===================== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coches Benéjuzar">
+<meta property="og:title" content="Coches Benéjuzar · What do you need?">
+<meta property="og:description" content="Upholstery for cars, boats and motorbikes · Convertible repair and upholstery.">
+<meta property="og:url" content="https://cbdeteiling.es/">
+<!-- CONFIGURA · imagen para compartir (1200x630 px recomendado) -->
+<meta property="og:image" content="https://cbdeteiling.es/images/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Precarga de las dos imágenes: son lo primero que ve el usuario -->
+<link rel="preload" as="image" href="images/1.jpg">
+<link rel="preload" as="image" href="images/2.jpg">
+<link rel="icon" href="/favicon.ico">
+
+<!-- ============================================================
+     CONFIGURA · GOOGLE ANALYTICS 4
+     Sustituye LAS DOS apariciones de G-XXXXXXXXXX por tu ID real
+     (lo obtienes gratis en analytics.google.com → Administrar →
+      Flujos de datos → Web → "ID de métrica" G-XXXXXXXXXX).
+     Si aún no lo tienes, puedes dejarlo así: la página funciona igual.
+     ============================================================ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');   /* <-- CONFIGURA: tu ID de GA4 */
+</script>
+
+<style>
+/* ============================================================
+   1. TOKENS
+   ============================================================ */
+:root{
+  --white:      #ffffff;
+  --ink:        #0c1116;   /* texto principal */
+  --muted:      #5c6b7a;   /* texto secundario */
+  --line:       #e6ebf2;   /* hairlines */
+  --blue:       #0f4fa8;   /* azul corporativo */
+  --blue-deep:  #0a3a7d;   /* azul presionado */
+  --blue-tint:  #f3f7fd;   /* fondo suave */
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+          "Noto Sans", Roboto, Arial, sans-serif;
+
+  --radius: 20px;
+  --maxw: 1120px;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{
+  margin:0;
+  background:var(--white);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:17px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+
+.wrap{
+  width:100%;
+  max-width:var(--maxw);
+  margin-inline:auto;
+  padding-inline:22px;
+}
+
+/* Visible solo para lectores de pantalla */
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* Foco accesible y coherente en toda la página */
+:focus-visible{
+  outline:2px solid var(--blue);
+  outline-offset:4px;
+  border-radius:6px;
+}
+
+/* ============================================================
+   3. CABECERA · marca + selector de idioma
+   ============================================================ */
+.site-head{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px;
+  padding-block:22px 8px;
+}
+.brand{
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+.brand span{ color:var(--blue); }
+
+/* Selector de idioma tipo segmento */
+.lang{
+  display:flex;
+  padding:3px;
+  gap:2px;
+  background:var(--blue-tint);
+  border-radius:999px;
+}
+.lang button{
+  appearance:none;
+  border:0;
+  background:transparent;
+  font-family:inherit;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.08em;
+  color:var(--muted);
+  padding:7px 13px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:color .25s var(--ease), background-color .25s var(--ease);
+}
+.lang button:hover{ color:var(--blue); }
+.lang button[aria-pressed="true"]{
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 1px 2px rgba(10,58,125,.28);
+}
+
+/* ============================================================
+   4. TÍTULO
+   ============================================================ */
+.hero{
+  padding-block:44px 34px;
+  max-width:20ch;
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(2.35rem, 9vw, 3.9rem);
+  line-height:1.04;
+  letter-spacing:-.032em;
+  font-weight:700;
+}
+.hero p{
+  margin:14px 0 0;
+  max-width:34ch;
+  color:var(--muted);
+  font-size:1.02rem;
+}
+
+/* ============================================================
+   5. TARJETAS DE SERVICIO
+   ------------------------------------------------------------
+   Detalle de marca: al pasar el ratón / enfocar aparece una
+   costura discontinua interior, guiño al pespunte de tapicería.
+   ============================================================ */
+.services{
+  display:grid;
+  gap:18px;
+  padding-bottom:52px;
+}
+
+.card{
+  position:relative;
+  display:block;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--white);
+  overflow:hidden;
+  transition:transform .4s var(--ease),
+             box-shadow .4s var(--ease),
+             border-color .4s var(--ease);
+}
+.card::after{                      /* la costura */
+  content:"";
+  position:absolute; inset:9px;
+  border:1.5px dashed rgba(15,79,168,.42);
+  border-radius:calc(var(--radius) - 9px);
+  opacity:0;
+  transition:opacity .35s var(--ease);
+  pointer-events:none;
+}
+
+.card__media{
+  aspect-ratio:4 / 3;
+  overflow:hidden;
+  background:var(--blue-tint);
+}
+.card__media img{
+  width:100%; height:100%;
+  object-fit:cover;
+  transition:transform .7s var(--ease);
+}
+
+.card__body{ padding:20px 22px 24px; }
+
+.card__eyebrow{
+  display:block;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--blue);
+  margin-bottom:9px;
+}
+.card__title{
+  margin:0;
+  font-size:1.28rem;
+  line-height:1.25;
+  letter-spacing:-.015em;
+  font-weight:650;
+}
+.card__text{
+  margin:8px 0 0;
+  color:var(--muted);
+  font-size:.96rem;
+}
+.card__cta{
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:18px;
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--blue);
+}
+.card__cta svg{
+  width:15px; height:15px;
+  transition:transform .35s var(--ease);
+}
+
+/* Estados: ratón, teclado y toque */
+@media (hover:hover){
+  .card:hover{
+    transform:translateY(-4px);
+    border-color:transparent;
+    box-shadow:0 18px 40px -18px rgba(12,33,66,.28);
+  }
+  .card:hover::after{ opacity:1; }
+  .card:hover .card__media img{ transform:scale(1.045); }
+  .card:hover .card__cta svg{ transform:translateX(5px); }
+}
+.card:focus-visible{
+  outline:2px solid var(--blue);
+  outline-offset:4px;
+}
+.card:focus-visible::after{ opacity:1; }
+.card:active{ transform:scale(.992); }
+
+/* ============================================================
+   6. PIE
+   ============================================================ */
+.site-foot{
+  border-top:1px solid var(--line);
+  padding-block:22px 34px;
+  display:flex; flex-wrap:wrap; gap:6px 18px;
+  align-items:center;
+  font-size:.85rem;
+  color:var(--muted);
+}
+.site-foot a{ color:var(--blue); font-weight:600; }
+
+/* ============================================================
+   7. RESPONSIVE · móvil primero
+   ============================================================ */
+@media (min-width:600px){
+  body{ font-size:18px; }
+  .wrap{ padding-inline:32px; }
+  .hero{ padding-block:62px 44px; }
+  .card__body{ padding:24px 26px 28px; }
+}
+@media (min-width:900px){
+  .site-head{ padding-block:30px 10px; }
+  .hero{ padding-block:80px 52px; max-width:none; }
+  .hero h1{ font-size:clamp(3.2rem, 5vw, 4.4rem); }
+  .services{
+    grid-template-columns:1fr 1fr;
+    gap:26px;
+    padding-bottom:88px;
+  }
+  .card__media{ aspect-ratio:3 / 2; }
+  .card__title{ font-size:1.42rem; }
+}
+
+/* ============================================================
+   8. ENTRADA SUAVE + accesibilidad de movimiento
+   ============================================================ */
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  animation:rise .7s var(--ease) forwards;
+}
+.reveal:nth-child(1){ animation-delay:.05s; }
+.reveal:nth-child(2){ animation-delay:.14s; }
+@keyframes rise{ to{ opacity:1; transform:none; } }
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-delay:0ms !important;
+    transition-duration:.001ms !important;
+  }
+  .reveal{ opacity:1; transform:none; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <!-- ================= CABECERA ================= -->
+  <header class="site-head">
+    <div class="brand">Coches <span>Benéjuzar</span></div>
+
+    <nav class="lang" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </nav>
+  </header>
+
+  <!-- ================= TÍTULO ================= -->
+  <main>
+    <section class="hero">
+      <h1 data-i18n="title">What do you need?</h1>
+      <p data-i18n="subtitle">Choose a service to continue.</p>
+    </section>
+
+    <!-- ================= TARJETAS ================= -->
+    <section class="services" aria-label="Services">
+
+      <!-- ---------- SERVICIO 1 · Tapicería ----------
+           Al pulsar: carga la web principal cbdeteiling.es
+           usando location.replace(), de modo que esta landing
+           NO queda en el historial (el botón "atrás" no vuelve aquí).
+      -->
+      <a class="card reveal" id="card-upholstery" href="https://cbdeteiling.es/">
+        <div class="card__media">
+          <!-- CONFIGURA · nombre del archivo de la imagen 1 -->
+          <img src="/images/1.jpg"
+               alt="Car upholstery workshop at Coches Benéjuzar"
+               data-i18n-alt="card1Alt"
+               width="1200" height="900"
+               decoding="async">
+        </div>
+        <div class="card__body">
+          <span class="card__eyebrow" data-i18n="card1Eyebrow">Cars · Boats · Motorbikes</span>
+          <h2 class="card__title" data-i18n="card1Title">Upholstery for cars, boats and motorbikes</h2>
+          <p class="card__text" data-i18n="card1Text">Seats, interiors, marine upholstery and full restorations.</p>
+          <span class="card__cta">
+            <span data-i18n="cta">Continue</span>
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- ---------- SERVICIO 2 · Cabrios ----------
+           Al pulsar: navegación normal a cabriopro.es (enlace HTML).
+           Sin redirecciones 301/302.
+      -->
+      <a class="card reveal" id="card-convertible" href="https://cabriopro.es">
+        <div class="card__media">
+          <!-- CONFIGURA · nombre del archivo de la imagen 2 -->
+          <img src="/images/93.jpg"
+               alt="Convertible soft top repair and upholstery"
+               data-i18n-alt="card2Alt"
+               width="1200" height="900"
+               decoding="async">
+        </div>
+        <div class="card__body">
+          <span class="card__eyebrow" data-i18n="card2Eyebrow">Convertibles</span>
+          <h2 class="card__title" data-i18n="card2Title">Convertible repair and upholstery</h2>
+          <p class="card__text" data-i18n="card2Text">Soft tops, mechanisms, leaks and specialist repairs.</p>
+          <span class="card__cta">
+            <span data-i18n="cta">Continue</span>
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+    </section>
+  </main>
+
+  <!-- ================= PIE ================= -->
+  <footer class="site-foot">
+    <span data-i18n="footerLocation">Benejúzar, Alicante · Spain</span>
+    <!-- CONFIGURA · pon aquí tu teléfono real (o borra esta línea) -->
+    <a href="tel:+34 693 461 811" data-i18n="footerCall">Call the workshop</a>
+  </footer>
+
+</div>
+
+<!-- ============================================================
+     DATOS ESTRUCTURADOS · ayudan al SEO local y a Google Maps
+     CONFIGURA · teléfono, calle, código postal y horario reales
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Coches Benéjuzar",
+  "url": "https://cbdeteiling.es/",
+  "telephone": "+34 693 461 811",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "CALLE Y NÚMERO",
+    "addressLocality": "Benejúzar",
+    "addressRegion": "Alicante",
+    "postalCode": "03390",
+    "addressCountry": "ES"
+  },
+  "areaServed": "Vega Baja del Segura, Alicante",
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tapicería de coches, barcos y motos" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación y tapicería de cabrios" } }
+  ]
+}
+</script>
+
+<script>
+/* ============================================================
+   LÓGICA DE LA PÁGINA
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ---------- CONFIGURA · URLs de destino --------------------
+     MAIN_SITE: web principal de tapicería.
+       · Si esta landing está en una subcarpeta (ej. /bienvenida/),
+         deja "https://cbdeteiling.es/".
+       · Si esta landing ES la portada del dominio, apunta aquí a
+         la página real del servicio, p. ej.
+         "https://cbdeteiling.es/tapiceria/" — si no, se recargaría
+         a sí misma en bucle.
+     CABRIO_SITE: segunda web, navegación normal.
+  ------------------------------------------------------------ */
+  var MAIN_SITE   = 'https://cbdeteiling.es/';
+  var CABRIO_SITE = 'https://cabriopro.es';
+
+  /* Detectar el idioma del navegador en la primera visita.
+     Ponlo en false si quieres que SIEMPRE empiece en inglés. */
+  var AUTO_DETECT_LANGUAGE = true;
+
+  var STORAGE_KEY = 'cb_lang';
+  var DEFAULT_LANG = 'en';
+
+  /* ---------- Traducciones ---------------------------------
+     Para editar un texto, cámbialo aquí en los tres idiomas.  */
+  var I18N = {
+    en: {
+      htmlLang:  'en',
+      pageTitle: 'Coches Benéjuzar · Car, Boat & Motorbike Upholstery — Convertible Repair',
+      metaDesc:  'Upholstery for cars, boats and motorbikes, and convertible repair in Benejúzar, Alicante. Choose the service you need.',
+      title:     'What do you need?',
+      subtitle:  'Choose a service to continue.',
+      card1Eyebrow: 'Cars · Boats · Motorbikes',
+      card1Title:   'Upholstery for cars, boats and motorbikes',
+      card1Text:    'Seats, interiors, marine upholstery and full restorations.',
+      card1Alt:     'Car upholstery work at Coches Benéjuzar',
+      card2Eyebrow: 'Convertibles',
+      card2Title:   'Convertible repair and upholstery',
+      card2Text:    'Soft tops, mechanisms, leaks and specialist repairs.',
+      card2Alt:     'Convertible soft top repair and upholstery',
+      cta:          'Continue',
+      footerLocation: 'Benejúzar, Alicante · Spain',
+      footerCall:     'Call the workshop'
+    },
+    es: {
+      htmlLang:  'es',
+      pageTitle: 'Coches Benéjuzar · Tapicería de coches, barcos y motos — Reparación de cabrios',
+      metaDesc:  'Tapicería de coches, barcos y motos y reparación de cabrios en Benejúzar, Alicante. Elige el servicio que necesitas.',
+      title:     '¿Qué necesitas?',
+      subtitle:  'Elige un servicio para continuar.',
+      card1Eyebrow: 'Coches · Barcos · Motos',
+      card1Title:   'Tapicería de coches, barcos y motos',
+      card1Text:    'Asientos, interiores, tapicería náutica y restauraciones completas.',
+      card1Alt:     'Trabajo de tapicería de coches en Coches Benéjuzar',
+      card2Eyebrow: 'Cabrios',
+      card2Title:   'Reparación y tapicería de cabrios',
+      card2Text:    'Capotas, mecanismos, filtraciones y reparaciones especializadas.',
+      card2Alt:     'Reparación y tapicería de capota de cabrio',
+      cta:          'Continuar',
+      footerLocation: 'Benejúzar, Alicante · España',
+      footerCall:     'Llamar al taller'
+    },
+    ru: {
+      htmlLang:  'ru',
+      pageTitle: 'Coches Benéjuzar · Обивка салонов авто, лодок и мотоциклов — Ремонт кабриолетов',
+      metaDesc:  'Обивка салонов автомобилей, лодок и мотоциклов, ремонт кабриолетов в Бенехусаре, Аликанте. Выберите нужную услугу.',
+      title:     'Что вам нужно?',
+      subtitle:  'Выберите услугу, чтобы продолжить.',
+      card1Eyebrow: 'Авто · Лодки · Мотоциклы',
+      card1Title:   'Обивка салонов авто, лодок и мотоциклов',
+      card1Text:    'Сиденья, интерьеры, обивка для лодок и полная реставрация.',
+      card1Alt:     'Работы по обивке салона автомобиля в Coches Benéjuzar',
+      card2Eyebrow: 'Кабриолеты',
+      card2Title:   'Ремонт и обивка кабриолетов',
+      card2Text:    'Крыши, механизмы, протечки и специализированный ремонт.',
+      card2Alt:     'Ремонт и обивка крыши кабриолета',
+      cta:          'Продолжить',
+      footerLocation: 'Бенехусар, Аликанте · Испания',
+      footerCall:     'Позвонить в мастерскую'
+    }
+  };
+
+  /* ---------- Utilidades de almacenamiento ------------------
+     Envueltas en try/catch: en modo privado localStorage puede
+     lanzar error y no queremos romper la página por eso.        */
+  function readLang() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  }
+  function saveLang(lang) {
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  }
+
+  /* ---------- Aplicar un idioma a toda la página ------------- */
+  function applyLang(lang) {
+    var t = I18N[lang] || I18N[DEFAULT_LANG];
+
+    document.documentElement.lang = t.htmlLang;
+    document.title = t.pageTitle;
+
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute('content', t.metaDesc);
+
+    // Textos
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (t[key]) el.textContent = t[key];
+    });
+
+    // Textos alternativos de las imágenes
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-alt');
+      if (t[key]) el.setAttribute('alt', t[key]);
+    });
+
+    // Estado visual del selector
+    document.querySelectorAll('.lang button').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang));
+    });
+  }
+
+  /* ---------- Idioma inicial -------------------------------- */
+  function initialLang() {
+    var saved = readLang();
+    if (saved && I18N[saved]) return saved;
+
+    if (AUTO_DETECT_LANGUAGE) {
+      var nav = (navigator.language || '').slice(0, 2).toLowerCase();
+      if (I18N[nav]) return nav;
+    }
+    return DEFAULT_LANG;
+  }
+
+  applyLang(initialLang());
+
+  /* ---------- Eventos de Google Analytics 4 ------------------
+     Eventos enviados:
+       select_service  (service: upholstery | convertible)
+       change_language (language: en | es | ru)
+     En GA4 puedes marcarlos como conversiones en:
+       Administrar → Eventos → "Marcar como evento clave".
+  ------------------------------------------------------------ */
+  function track(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  }
+
+  /* ---------- Cambio de idioma ------------------------------ */
+  document.querySelectorAll('.lang button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var lang = btn.dataset.lang;
+      saveLang(lang);
+      applyLang(lang);
+      track('change_language', { language: lang });
+    });
+  });
+
+  /* ---------- Servicio 1 · Tapicería ------------------------
+     location.replace() sustituye esta landing en el historial:
+     el usuario no puede "volver atrás" a ella.                 */
+  var cardUpholstery = document.getElementById('card-upholstery');
+  cardUpholstery.setAttribute('href', MAIN_SITE);
+  cardUpholstery.addEventListener('click', function (e) {
+    e.preventDefault();
+    var done = false;
+    function go() {
+      if (done) return;
+      done = true;
+      window.location.replace(MAIN_SITE);
+    }
+    track('select_service', {
+      service: 'upholstery',
+      destination: MAIN_SITE,
+      event_callback: go
+    });
+    setTimeout(go, 400);   // por si Analytics no responde o está bloqueado
+  });
+
+  /* ---------- Servicio 2 · Cabrios --------------------------
+     Enlace normal: no interceptamos la navegación, solo medimos. */
+  var cardConvertible = document.getElementById('card-convertible');
+  cardConvertible.setAttribute('href', CABRIO_SITE);
+  cardConvertible.addEventListener('click', function () {
+    track('select_service', { service: 'convertible', destination: CABRIO_SITE });
+  });
+
+})();
+</script>
+
+</body>
+</html>
