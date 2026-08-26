@@ -388,6 +388,53 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 .cookie-actions .accept{background:#fff;color:var(--navy);}
 .cookie-actions .decline{border:1px solid rgba(255,255,255,.4);color:#fff;}
 
+/* ---------- LIGHTBOX MODAL ---------- */
+.lightbox-modal{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(8,21,39,.95);
+  display:none;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s var(--ease);
+  backdrop-filter:blur(5px);
+}
+.lightbox-modal.open{
+  display:flex;opacity:1;
+}
+.lightbox-content{
+  position:relative;width:90%;height:90%;
+  display:flex;align-items:center;justify-content:center;
+}
+.lightbox-image{
+  max-width:100%;max-height:100%;object-fit:contain;
+  animation:zoomIn .4s var(--ease);
+}
+@keyframes zoomIn{
+  from{transform:scale(.92);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+.lightbox-close{
+  position:absolute;top:20px;right:20px;
+  width:44px;height:44px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);border-radius:2px;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  cursor:pointer;transition:all .3s var(--ease);z-index:2001;
+}
+.lightbox-close:hover{background:rgba(255,255,255,.2);border-color:#fff;}
+.lightbox-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;cursor:pointer;transition:all .3s var(--ease);z-index:2001;
+}
+.lightbox-nav:hover{background:rgba(255,255,255,.2);border-color:#fff;}
+.lightbox-prev{left:20px;}
+.lightbox-next{right:20px;}
+.lightbox-counter{
+  position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,.6);font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:.05em;
+}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:900px){
   .nav-links{display:none;}
@@ -397,12 +444,19 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
   .process-grid{grid-template-columns:1fr 1fr;}
   .gallery-grid{grid-template-columns:1fr 1fr;}
   section{padding:80px 0;}
+  .lightbox-nav{width:36px;height:36px;}
+  .lightbox-close{width:36px;height:36px;}
 }
 @media (max-width:560px){
   .services-grid, .materials-strip, .process-grid{grid-template-columns:1fr;}
   .hero-content{padding-bottom:60px;}
   .container{padding:0 20px;}
   .scene-indicators{display:none;}
+  .lightbox-nav{width:32px;height:32px;font-size:14px;}
+  .lightbox-close{width:32px;height:32px;font-size:14px;}
+  .lightbox-prev{left:12px;}
+  .lightbox-next{right:12px;}
+  .lightbox-close{top:12px;right:12px;}
 }
 @media (prefers-reduced-motion: reduce){
   *{transition-duration:.01ms !important;animation-duration:.01ms !important;}
@@ -732,6 +786,17 @@ document.getElementById("spanYear").textContent = new Date().getFullYear();
 <a class="whatsapp-float" href="https://wa.me/34693461811" target="_blank" aria-label="WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1.1 2.6c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.5-.3z"/></svg>
 </a>
+
+<!-- ===================== LIGHTBOX MODAL ===================== -->
+<div class="lightbox-modal" id="lightbox-modal">
+  <div class="lightbox-content">
+    <img class="lightbox-image" id="lightbox-image" src="" alt="">
+    <div class="lightbox-close" id="lightbox-close">✕</div>
+    <div class="lightbox-nav lightbox-prev" id="lightbox-prev">❮</div>
+    <div class="lightbox-nav lightbox-next" id="lightbox-next">❯</div>
+    <div class="lightbox-counter"><span id="lightbox-current">1</span> / <span id="lightbox-total">276</span></div>
+  </div>
+</div>
 
 <!-- ===================== COOKIE BANNER ===================== -->
 <div class="cookie-banner" id="cookie-banner">

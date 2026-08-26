@@ -55,11 +55,44 @@
 /* ============ GALLERY ============ */
   const galleryGrid = document.getElementById('gallery-grid');
   const loadMoreBtn = document.getElementById('load-more-btn');
+  const lightboxModal = document.getElementById('lightbox-modal');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+  const lightboxCurrent = document.getElementById('lightbox-current');
 
-  const TOTAL_IMAGES = 276; // Ajusta a tu cantidad total de fotos
+  const TOTAL_IMAGES = 276;
   const BATCH_SIZE = 20;
 
   let currentIndex = 1;
+  let currentLightboxImage = 0;
+
+  function openLightbox(imageNumber) {
+    currentLightboxImage = imageNumber;
+    lightboxImage.src = `images/${imageNumber}.jpg`;
+    lightboxImage.alt = `Proyecto ${imageNumber}`;
+    lightboxCurrent.textContent = imageNumber;
+    lightboxModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightboxModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function showNextImage() {
+    if (currentLightboxImage < TOTAL_IMAGES) {
+      openLightbox(currentLightboxImage + 1);
+    }
+  }
+
+  function showPrevImage() {
+    if (currentLightboxImage > 1) {
+      openLightbox(currentLightboxImage - 1);
+    }
+  }
 
   function loadNextBatch() {
     const limit = Math.min(currentIndex + BATCH_SIZE, TOTAL_IMAGES + 1);
@@ -67,7 +100,13 @@
     for (let i = currentIndex; i < limit; i++) {
       const item = document.createElement('div');
       item.className = 'gallery-item';
-      item.innerHTML = `<img src="images/${i}.jpg" alt="Proyecto ${i}" loading="lazy">`;
+      const img = document.createElement('img');
+      img.src = `images/${i}.jpg`;
+      img.alt = `Proyecto ${i}`;
+      img.loading = 'lazy';
+      item.appendChild(img);
+
+      item.addEventListener('click', () => openLightbox(i));
       galleryGrid.appendChild(item);
     }
 
@@ -85,6 +124,20 @@
   if (loadMoreBtn) {
     loadMoreBtn.addEventListener('click', loadNextBatch);
   }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', showPrevImage);
+  lightboxNext.addEventListener('click', showNextImage);
+  lightboxModal.addEventListener('click', (e) => {
+    if (e.target === lightboxModal) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightboxModal.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNextImage();
+    if (e.key === 'ArrowLeft') showPrevImage();
+  });
   /* ============ COOKIE BANNER ============ */
   const cookieBanner = document.getElementById('cookie-banner');
   const COOKIE_KEY = 'cb_cookie_consent';
