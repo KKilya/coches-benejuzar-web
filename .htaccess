@@ -1,0 +1,43 @@
+# =========================================================
+# Seguridad de Red y Certificados — cbdeteiling.es
+# Ver NORMAS_SEGURIDAD_Y_CALIDAD.md > 🔐 Seguridad de Red y Certificados
+# =========================================================
+
+# --- 1. Forzar HTTPS (redirección HTTP -> HTTPS) ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# --- 2. Security Headers HTTP ---
+<IfModule mod_headers.c>
+  # HSTS: fuerza HTTPS en el navegador durante 1 año, incluye subdominios
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Evita que el navegador adivine el tipo MIME de un recurso
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Evita que el sitio se cargue dentro de un <iframe> ajeno (clickjacking)
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Protección XSS heredada para navegadores antiguos
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # Limita cuánta información de referer se envía a otros orígenes
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Bloquea el acceso a APIs sensibles del navegador que este sitio no usa
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # --- 3. Content Security Policy (CSP) ---
+  # Permite: Google Tag Manager/Analytics (gtag), Google Maps embed, Google Fonts
+  # 'unsafe-inline' en script-src es necesario porque el sitio usa <script> inline
+  # (config de gtag, JSON-LD, año del footer, datos i18n) sin build step que genere nonces/hashes.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+</IfModule>
+
+# --- 4. CORS ---
+# No aplica: no se sirven fuentes/recursos propios desde otro origen.
+# Google Fonts y Google Maps se cargan desde sus propios dominios con CORS
+# gestionado por Google; no requiere configuración adicional en este servidor.
