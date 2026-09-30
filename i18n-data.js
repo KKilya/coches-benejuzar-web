@@ -24,7 +24,9 @@ const I18N_DATA = {
     "materials.m2":"Alcantara","materials.m2d":"Technical suede finish",
     "materials.m3":"Marine Fabrics","materials.m3d":"UV and salt water resistant",
     "materials.m4":"Premium Materials","materials.m4d":"Sourced for lasting quality",
-    "gallery.eyebrow":"Gallery","gallery.title":"Selected projects","gallery.more":"View More Projects",
+    "gallery.eyebrow":"Gallery","gallery.title":"Selected projects",
+    "gallery.subtitle":"Browse completed projects by category: automotive, motorcycle and marine upholstery.",
+    "gallery.tabCoches":"Cars","gallery.tabMotos":"Motorcycles","gallery.tabMarine":"Marine","gallery.projects":"projects",
     "process.eyebrow":"Our Process","process.title":"From first contact to final delivery",
     "process.s1.title":"Contact","process.s1.desc":"Customer explains the project.",
     "process.s2.title":"Advice & Design","process.s2.desc":"Choosing materials and solutions.",
@@ -34,10 +36,14 @@ const I18N_DATA = {
     "contact.phone":"Phone","contact.email":"Email","contact.address":"Address","contact.hours":"Opening Hours",
     "contact.hoursMF":"Monday – Friday","contact.hoursSummer":"Summer Schedule","contact.hoursClosed":"Closed","contact.hoursWeekend":"Saturday & Sunday",
     "footer.tagline":"Precision upholstery for automotive, motorcycle and marine projects.",
-    "footer.legal":"Legal Notice","footer.privacy":"Privacy Policy","footer.cookies":"Cookie Policy","footer.made":"Benejúzar, Alicante, Spain",
+    "footer.legal":"Legal Notice","footer.privacy":"Privacy Policy","footer.cookies":"Cookie Policy",
+    "footer.terms":"Terms & Conditions","footer.accessebility":"Accessibility Statement","footer.made":"Benejúzar, Alicante, Spain",
     "cookie.text":"We use cookies to improve your experience and analyze site traffic. You can accept or decline non-essential cookies.",
     "cookie.decline":"Decline","cookie.accept":"Accept",
-    "meta.description":"Coches Benejúzar: premium custom upholstery for cars, motorcycles and boats in Benejúzar, Alicante. Precision craftsmanship with Proliner digital measurement technology."
+    "meta.description":"Coches Benejúzar: premium custom upholstery for cars, motorcycles and boats in Benejúzar, Alicante. Precision craftsmanship with Proliner digital measurement technology.",
+    "meta.title":"Coches Benejúzar — Premium Automotive, Motorcycle & Marine Upholstery",
+    "gallery.meta.title":"Upholstery Gallery — Cars, Motorcycles & Boats | Coches Benejúzar",
+    "gallery.meta.description":"Browse Coches Benejúzar's upholstery projects by category: automotive, motorcycle and marine upholstery in Benejúzar, Alicante."
   },
   es: {
     "nav.home":"Inicio","nav.about":"Nosotros","nav.services":"Servicios","nav.technology":"Tecnología",
@@ -64,7 +70,9 @@ const I18N_DATA = {
     "materials.m2":"Alcántara","materials.m2d":"Acabado técnico tipo ante",
     "materials.m3":"Tejidos Náuticos","materials.m3d":"Resistentes a UV y agua salada",
     "materials.m4":"Materiales Premium","materials.m4d":"Seleccionados por su durabilidad",
-    "gallery.eyebrow":"Galería","gallery.title":"Proyectos seleccionados","gallery.more":"Ver Más Proyectos",
+    "gallery.eyebrow":"Galería","gallery.title":"Proyectos seleccionados",
+    "gallery.subtitle":"Explora los proyectos realizados por categoría: tapicería de coches, motos y náutica.",
+    "gallery.tabCoches":"Coches","gallery.tabMotos":"Motos","gallery.tabMarine":"Náutica","gallery.projects":"proyectos",
     "process.eyebrow":"Nuestro Proceso","process.title":"Desde el primer contacto hasta la entrega final",
     "process.s1.title":"Contacto","process.s1.desc":"El cliente explica el proyecto.",
     "process.s2.title":"Asesoramiento y Diseño","process.s2.desc":"Elección de materiales y soluciones.",
@@ -74,10 +82,14 @@ const I18N_DATA = {
     "contact.phone":"Teléfono","contact.email":"Correo","contact.address":"Dirección","contact.hours":"Horario",
     "contact.hoursMF":"Lunes – Viernes","contact.hoursSummer":"Horario de Verano","contact.hoursClosed":"Cerrado","contact.hoursWeekend":"Sábado y Domingo",
     "footer.tagline":"Tapicería de precisión para proyectos de automoción, moto y náutica.",
-    "footer.legal":"Aviso Legal","footer.privacy":"Política de Privacidad","footer.cookies":"Política de Cookies","footer.made":"Benejúzar, Alicante, España",
+    "footer.legal":"Aviso Legal","footer.privacy":"Política de Privacidad","footer.cookies":"Política de Cookies",
+    "footer.terms":"Términos y Condiciones","footer.accessebility":"Declaración de Accesibilidad","footer.made":"Benejúzar, Alicante, España",
     "cookie.text":"Usamos cookies para mejorar tu experiencia y analizar el tráfico del sitio. Puedes aceptar o rechazar las cookies no esenciales.",
     "cookie.decline":"Rechazar","cookie.accept":"Aceptar",
-    "meta.description":"Coches Benejúzar: tapicería personalizada premium para coches, motos y barcos en Benejúzar, Alicante. Artesanía de precisión con tecnología de medición digital Proliner."
+    "meta.description":"Coches Benejúzar: tapicería personalizada premium para coches, motos y barcos en Benejúzar, Alicante. Artesanía de precisión con tecnología de medición digital Proliner.",
+    "meta.title":"Tapicería de Coches, Motos y Náutica en Alicante | Coches Benejúzar",
+    "gallery.meta.title":"Galería de Trabajos de Tapicería — Coches, Motos y Barcos | Coches Benejúzar",
+    "gallery.meta.description":"Descubre nuestros trabajos de tapicería por categoría: coches, motos y náutica en Benejúzar, Alicante. Más de 10 años de artesanía a medida."
   },
   ru: {
     "nav.home":"Главная","nav.about":"О нас","nav.services":"Услуги","nav.technology":"Технологии",
@@ -104,7 +116,9 @@ const I18N_DATA = {
     "materials.m2":"Алькантара","materials.m2d":"Техническая замшевая отделка",
     "materials.m3":"Морские ткани","materials.m3d":"Устойчивы к УФ и солёной воде",
     "materials.m4":"Премиальные материалы","materials.m4d":"Отобраны для долговечности",
-    "gallery.eyebrow":"Галерея","gallery.title":"Избранные проекты","gallery.more":"Смотреть больше проектов",
+    "gallery.eyebrow":"Галерея","gallery.title":"Избранные проекты",
+    "gallery.subtitle":"Просмотрите выполненные проекты по категориям: автомобили, мотоциклы и морская обивка.",
+    "gallery.tabCoches":"Автомобили","gallery.tabMotos":"Мотоциклы","gallery.tabMarine":"Морская","gallery.projects":"проектов",
     "process.eyebrow":"Наш процесс","process.title":"От первого контакта до финальной сдачи",
     "process.s1.title":"Контакт","process.s1.desc":"Клиент описывает проект.",
     "process.s2.title":"Консультация и дизайн","process.s2.desc":"Выбор материалов и решений.",
@@ -114,9 +128,13 @@ const I18N_DATA = {
     "contact.phone":"Телефон","contact.email":"Email","contact.address":"Адрес","contact.hours":"Часы работы",
     "contact.hoursMF":"Понедельник – Пятница","contact.hoursSummer":"Летний график","contact.hoursClosed":"Закрыто","contact.hoursWeekend":"Суббота и воскресенье",
     "footer.tagline":"Точная обивка для автомобильных, мотоциклетных и морских проектов.",
-    "footer.legal":"Правовая информация","footer.privacy":"Политика конфиденциальности","footer.cookies":"Политика cookie","footer.made":"Бенехусар, Аликанте, Испания",
+    "footer.legal":"Правовая информация","footer.privacy":"Политика конфиденциальности","footer.cookies":"Политика cookie",
+    "footer.terms":"Условия использования","footer.accessebility":"Декларация о доступности","footer.made":"Бенехусар, Аликанте, Испания",
     "cookie.text":"Мы используем cookie-файлы для улучшения вашего опыта и анализа трафика сайта. Вы можете принять или отклонить неосновные cookie.",
     "cookie.decline":"Отклонить","cookie.accept":"Принять",
-    "meta.description":"Coches Benejúzar: премиальная индивидуальная обивка автомобилей, мотоциклов и лодок в Бенехусаре, Аликанте. Точное мастерство с технологией цифрового измерения Proliner."
+    "meta.description":"Coches Benejúzar: премиальная индивидуальная обивка автомобилей, мотоциклов и лодок в Бенехусаре, Аликанте. Точное мастерство с технологией цифрового измерения Proliner.",
+    "meta.title":"Обивка Салона: Авто, Мото и Яхты — Аликанте | Coches Benejúzar",
+    "gallery.meta.title":"Галерея Работ — Обивка Авто, Мото и Яхт | Coches Benejúzar",
+    "gallery.meta.description":"Смотрите наши работы по категориям: обивка салона автомобилей, мотоциклов и яхт в Бенехусаре, Аликанте. Более 10 лет индивидуального мастерства."
   }
 };

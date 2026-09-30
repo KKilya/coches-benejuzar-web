@@ -22,23 +22,27 @@
   indicators.forEach((b)=>{
     b.addEventListener('click', ()=> setScene(parseInt(b.dataset.scene,10)));
   });
-  let sceneTimer = setInterval(()=>{
-    setScene((sceneIndex+1) % scenes.length);
-  }, 5500);
-  // pause auto-rotate on manual interaction briefly
-  indicators.forEach(b=>b.addEventListener('click', ()=>{
-    clearInterval(sceneTimer);
-    sceneTimer = setInterval(()=> setScene((sceneIndex+1) % scenes.length), 5500);
-  }));
+  if(scenes.length){
+    let sceneTimer = setInterval(()=>{
+      setScene((sceneIndex+1) % scenes.length);
+    }, 5500);
+    // pause auto-rotate on manual interaction briefly
+    indicators.forEach(b=>b.addEventListener('click', ()=>{
+      clearInterval(sceneTimer);
+      sceneTimer = setInterval(()=> setScene((sceneIndex+1) % scenes.length), 5500);
+    }));
+  }
 
   /* also shift scene subtly on page scroll for parallax feel */
   const heroScenesWrap = document.querySelector('.hero-scenes');
-  window.addEventListener('scroll', ()=>{
-    const y = window.scrollY;
-    if(y < window.innerHeight){
-      heroScenesWrap.style.transform = 'translateY(' + (y*0.25) + 'px)';
-    }
-  }, {passive:true});
+  if(heroScenesWrap){
+    window.addEventListener('scroll', ()=>{
+      const y = window.scrollY;
+      if(y < window.innerHeight){
+        heroScenesWrap.style.transform = 'translateY(' + (y*0.25) + 'px)';
+      }
+    }, {passive:true});
+  }
 
   /* ============ SCROLL REVEAL ============ */
   const revealEls = document.querySelectorAll('.reveal');
@@ -52,92 +56,6 @@
   }, {threshold:0.15});
   revealEls.forEach(el=>io.observe(el));
 
-/* ============ GALLERY ============ */
-  const galleryGrid = document.getElementById('gallery-grid');
-  const loadMoreBtn = document.getElementById('load-more-btn');
-  const lightboxModal = document.getElementById('lightbox-modal');
-  const lightboxImage = document.getElementById('lightbox-image');
-  const lightboxClose = document.getElementById('lightbox-close');
-  const lightboxPrev = document.getElementById('lightbox-prev');
-  const lightboxNext = document.getElementById('lightbox-next');
-  const lightboxCurrent = document.getElementById('lightbox-current');
-
-  const TOTAL_IMAGES = 276;
-  const BATCH_SIZE = 20;
-
-  let currentIndex = 1;
-  let currentLightboxImage = 0;
-
-  function openLightbox(imageNumber) {
-    currentLightboxImage = imageNumber;
-    lightboxImage.src = `images/${imageNumber}.jpg`;
-    lightboxImage.alt = `Proyecto ${imageNumber}`;
-    lightboxCurrent.textContent = imageNumber;
-    lightboxModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightboxModal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function showNextImage() {
-    if (currentLightboxImage < TOTAL_IMAGES) {
-      openLightbox(currentLightboxImage + 1);
-    }
-  }
-
-  function showPrevImage() {
-    if (currentLightboxImage > 1) {
-      openLightbox(currentLightboxImage - 1);
-    }
-  }
-
-  function loadNextBatch() {
-    const limit = Math.min(currentIndex + BATCH_SIZE, TOTAL_IMAGES + 1);
-
-    for (let i = currentIndex; i < limit; i++) {
-      const item = document.createElement('div');
-      item.className = 'gallery-item';
-      const img = document.createElement('img');
-      img.src = `images/${i}.jpg`;
-      img.alt = `Proyecto ${i}`;
-      img.loading = 'lazy';
-      item.appendChild(img);
-
-      item.addEventListener('click', () => openLightbox(i));
-      galleryGrid.appendChild(item);
-    }
-
-    currentIndex = limit;
-
-    if (currentIndex > TOTAL_IMAGES && loadMoreBtn) {
-      loadMoreBtn.style.display = 'none';
-    }
-  }
-
-  if (galleryGrid) {
-    loadNextBatch();
-  }
-
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', loadNextBatch);
-  }
-
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightboxPrev.addEventListener('click', showPrevImage);
-  lightboxNext.addEventListener('click', showNextImage);
-  lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal) closeLightbox();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (!lightboxModal.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNextImage();
-    if (e.key === 'ArrowLeft') showPrevImage();
-  });
   /* ============ COOKIE BANNER ============ */
   const cookieBanner = document.getElementById('cookie-banner');
   const COOKIE_KEY = 'cb_cookie_consent';
@@ -163,21 +81,36 @@
       const key = el.getAttribute('data-i18n');
       if(dict[key]) el.textContent = dict[key];
     });
+    document.querySelectorAll('[data-i18n-content]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-content');
+      if(dict[key]) el.setAttribute('content', dict[key]);
+    });
     document.documentElement.setAttribute('lang', lang);
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if(metaDesc && dict['meta.description']) metaDesc.setAttribute('content', dict['meta.description']);
     langButtons.forEach(b=>b.classList.toggle('active', b.dataset.lang === lang));
     try{ localStorage.setItem('cb_lang', lang); }catch(e){}
   }
   langButtons.forEach(btn=>{
-    btn.addEventListener('click', ()=> applyLang(btn.dataset.lang));
+    btn.addEventListener('click', ()=>{
+      // Si el botón lleva data-href, navega a la página estática de ese
+      // idioma (/es/, /ru/) en vez de solo cambiar el texto, para que
+      // Google indexe una URL real por idioma.
+      const href = btn.getAttribute('data-href');
+      if(href){ window.location.href = href; return; }
+      applyLang(btn.dataset.lang);
+    });
   });
-  // restore saved language preference if present
+  // Páginas estáticas por idioma (/es/, /ru/) fijan window.CB_LOCKED_LANG
+  // antes de cargar este script para que la URL mande siempre, y no la
+  // localStorage de una visita anterior (ver SEO_NOTES.md).
   let initialLang = 'en';
-  try{
-    const saved = localStorage.getItem('cb_lang');
-    if(saved && I18N_DATA[saved]) initialLang = saved;
-  }catch(e){}
+  if(window.CB_LOCKED_LANG && I18N_DATA[window.CB_LOCKED_LANG]){
+    initialLang = window.CB_LOCKED_LANG;
+  } else {
+    try{
+      const saved = localStorage.getItem('cb_lang');
+      if(saved && I18N_DATA[saved]) initialLang = saved;
+    }catch(e){}
+  }
   if(initialLang !== 'en') applyLang(initialLang);
 
   /* ============ MOBILE NAV (burger) ============ */

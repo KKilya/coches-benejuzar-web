@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="gallery.meta.title">Galería de Trabajos de Tapicería — Coches, Motos y Barcos | Coches Benejúzar</title>
+<meta name="description" data-i18n-content="gallery.meta.description" content="Descubre nuestros trabajos de tapicería por categoría: coches, motos y náutica en Benejúzar, Alicante. Más de 10 años de artesanía a medida.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Coches Benejúzar">
+<link rel="canonical" href="https://cochesbenejuzar.com/es/galeria.html">
+
+
+
+
+<meta property="og:title" content="Galería de Trabajos de Tapicería — Coches, Motos y Barcos | Coches Benejúzar">
+<meta property="og:description" content="Descubre nuestros trabajos de tapicería por categoría: coches, motos y náutica en Benejúzar, Alicante. Más de 10 años de artesanía a medida.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cochesbenejuzar.com/es/galeria.html">
+<meta property="og:image" content="https://cochesbenejuzar.com/hero/1.jpg">
+<meta name="theme-color" content="#0B1F3A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&amp;family=Inter:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FAF9F6;
+  --white-soft:#F3F1EC;
+  --navy:#0B1F3A;
+  --navy-deep:#081527;
+  --navy-mid:#16304F;
+  --graphite:#3A3F47;
+  --gray-light:#E7E9EC;
+  --pewter:#9BA3AD;
+  --pewter-dim:#C7CCD1;
+  --line:rgba(11,31,58,0.12);
+  --stitch:#B5BCC4;
+  --radius:2px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--white);
+  color:var(--graphite);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3,.display{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  letter-spacing:-0.01em;
+  color:var(--navy);
+}
+.mono{font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.container{max-width:1200px;margin:0 auto;padding:0 32px;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+.stitch-line{
+  width:100%;height:1px;position:relative;
+  background-image:linear-gradient(to right, var(--pewter) 50%, transparent 50%);
+  background-size:12px 1px;background-repeat:repeat-x;opacity:0.55;
+}
+
+/* ---------- NAV (always-light: this page has no hero behind it) ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:18px 0;
+  background:rgba(250,249,246,0.92);
+  backdrop-filter:blur(10px);
+  box-shadow:0 1px 0 var(--line);
+}
+nav{display:flex;align-items:center;justify-content:space-between;}
+.logo-mark{display:flex;align-items:center;gap:12px;color:var(--navy);}
+.logo-mark svg{height:36px;width:auto;}
+.logo-text{
+  font-family:'Fraunces',serif;font-size:15px;letter-spacing:0.08em;
+  color:var(--navy);text-transform:uppercase;
+}
+.nav-links{display:flex;gap:38px;align-items:center;}
+.nav-links a{
+  font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--navy);position:relative;padding-bottom:4px;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0;width:0;height:1px;
+  background:var(--pewter);transition:width .3s var(--ease);
+}
+.nav-links a:hover::after, .nav-links a.current::after{width:100%;}
+.lang-switch{display:flex;gap:2px;font-family:'IBM Plex Mono',monospace;font-size:12px;}
+.lang-switch button{
+  padding:5px 9px;color:var(--navy);opacity:.5;letter-spacing:.05em;
+  border:1px solid transparent;
+}
+.lang-switch button.active{opacity:1;border-color:currentColor;border-radius:1px;}
+.burger{display:none;flex-direction:column;gap:5px;}
+.burger span{width:24px;height:1px;background:var(--navy);}
+
+/* ---------- SECTION GENERIC ---------- */
+section{padding:120px 0;position:relative;}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--pewter);margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;
+}
+.eyebrow .stitch-line{width:32px;flex-shrink:0;}
+
+/* ---------- GALLERY HERO / TABS ---------- */
+.gallery-hero{padding:150px 0 0;}
+.gallery-hero h1{font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.15;max-width:720px;}
+.gallery-hero .lead{font-size:16px;color:var(--graphite);opacity:.85;max-width:560px;margin-top:18px;}
+.gallery-tabs{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap;}
+.tab-btn{
+  padding:13px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--line);color:var(--navy);transition:all .3s var(--ease);
+}
+.tab-btn:hover{background:var(--white-soft);}
+.tab-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.gallery-count{
+  margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:12px;
+  color:var(--pewter);letter-spacing:.05em;
+}
+
+/* ---------- GALLERY GRID ---------- */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.gallery-item{
+  aspect-ratio:1;position:relative;overflow:hidden;background:var(--navy-mid);
+  cursor:pointer;
+}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.gallery-item:hover img{transform:scale(1.06);}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
+.footer-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;margin-bottom:40px;}
+.footer-legal{display:flex;gap:28px;flex-wrap:wrap;}
+.footer-legal a{font-size:13px;color:rgba(255,255,255,.55);}
+.footer-legal a:hover{color:#fff;}
+.footer-bottom{
+  display:flex;justify-content:space-between;padding-top:26px;
+  border-top:1px solid rgba(255,255,255,.12);font-size:12px;flex-wrap:wrap;gap:10px;
+}
+
+/* ---------- WHATSAPP FLOAT ---------- */
+.whatsapp-float{
+  position:fixed;bottom:28px;right:28px;z-index:900;
+  width:58px;height:58px;border-radius:50%;background:#0B1F3A;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  box-shadow:0 8px 24px rgba(11,31,58,.35);
+  transition:transform .3s var(--ease);
+}
+.whatsapp-float:hover{transform:scale(1.08);}
+
+/* ---------- COOKIE BANNER ---------- */
+.cookie-banner{
+  position:fixed;bottom:0;left:0;right:0;z-index:1100;
+  background:var(--navy);color:#fff;padding:22px 0;
+  transform:translateY(100%);transition:transform .5s var(--ease);
+}
+.cookie-banner.show{transform:translateY(0);}
+.cookie-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+.cookie-inner p{font-size:13px;color:rgba(255,255,255,.75);max-width:640px;}
+.cookie-actions{display:flex;gap:12px;flex-shrink:0;}
+.cookie-actions button{padding:11px 20px;font-size:12px;letter-spacing:.05em;text-transform:uppercase;}
+.cookie-actions .accept{background:#fff;color:var(--navy);}
+.cookie-actions .decline{border:1px solid rgba(255,255,255,.4);color:#fff;}
+
+/* ---------- LIGHTBOX MODAL ---------- */
+.lightbox-modal{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(8,21,39,.95);
+  display:none;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s var(--ease);
+  backdrop-filter:blur(5px);
+}
+.lightbox-modal.open{display:flex;opacity:1;}
+.lightbox-content{position:relative;width:90%;height:90%;display:flex;align-items:center;justify-content:center;}
+.lightbox-image{max-width:100%;max-height:100%;object-fit:contain;animation:zoomIn .4s var(--ease);}
+@keyframes zoomIn{ from{transform:scale(.92);opacity:0;} to{transform:scale(1);opacity:1;} }
+.lightbox-close{
+  position:absolute;top:20px;right:20px;
+  width:44px;height:44px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);border-radius:2px;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  cursor:pointer;transition:all .3s var(--ease);z-index:2001;
+}
+.lightbox-close:hover{background:rgba(255,255,255,.2);border-color:#fff;}
+.lightbox-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;cursor:pointer;transition:all .3s var(--ease);z-index:2001;
+}
+.lightbox-nav:hover{background:rgba(255,255,255,.2);border-color:#fff;}
+.lightbox-prev{left:20px;}
+.lightbox-next{right:20px;}
+.lightbox-counter{
+  position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,.6);font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:.05em;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  section{padding:80px 0;}
+  .gallery-hero{padding-top:130px;}
+  .lightbox-nav{width:36px;height:36px;}
+  .lightbox-close{width:36px;height:36px;}
+}
+@media (max-width:560px){
+  .container{padding:0 20px;}
+  .lightbox-nav{width:32px;height:32px;font-size:14px;}
+  .lightbox-close{width:32px;height:32px;font-size:14px;}
+  .lightbox-prev{left:12px;}
+  .lightbox-next{right:12px;}
+  .lightbox-close{top:12px;right:12px;}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition-duration:.01ms !important;animation-duration:.01ms !important;}
+}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SZQTPR0NX5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SZQTPR0NX5');
+</script>
+<link rel="alternate" hreflang="en" href="https://cochesbenejuzar.com/galeria.html"><link rel="alternate" hreflang="es" href="https://cochesbenejuzar.com/es/galeria.html"><link rel="alternate" hreflang="ru" href="https://cochesbenejuzar.com/ru/galeria.html"><link rel="alternate" hreflang="x-default" href="https://cochesbenejuzar.com/galeria.html"></head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header id="site-header">
+  <div class="container">
+    <nav>
+      <a href="index.html#home" class="logo-mark">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1"></circle>
+          <path d="M18 40 L18 24 L26 24" stroke="currentColor" stroke-width="1.6" fill="none"></path>
+          <path d="M38 24 L46 24 L46 40" stroke="currentColor" stroke-width="1.6" fill="none"></path>
+          <path d="M22 32 L42 32" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3"></path>
+          <text x="32" y="37" font-family="Fraunces, serif" font-size="14" fill="currentColor" text-anchor="middle">CB</text>
+        </svg>
+        <span class="logo-text">Coches Benejúzar</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#home" data-i18n="nav.home">Inicio</a>
+        <a href="index.html#about" data-i18n="nav.about">Nosotros</a>
+        <a href="index.html#services" data-i18n="nav.services">Servicios</a>
+        <a href="index.html#technology" data-i18n="nav.technology">Tecnología</a>
+        <a href="galeria.html" class="current" data-i18n="nav.gallery">Galería</a>
+        <a href="index.html#contact" data-i18n="nav.contact">Contacto</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div class="lang-switch" id="lang-switch">
+          <button data-lang="en" class="" data-href="../galeria.html">EN</button>
+          <button data-lang="es" class="active">ES</button>
+          <button data-lang="ru" data-href="../ru/galeria.html">RU</button>
+        </div>
+        <div class="burger"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== GALLERY HEADER + TABS ===================== -->
+<section class="gallery-hero">
+  <div class="container">
+    <div class="eyebrow"><span class="stitch-line"></span><span data-i18n="gallery.eyebrow">Galería</span></div>
+    <h1 data-i18n="gallery.title">Proyectos seleccionados</h1>
+    <p class="lead" data-i18n="gallery.subtitle">Explora los proyectos realizados por categoría: tapicería de coches, motos y náutica.</p>
+    <div class="gallery-tabs" id="gallery-tabs">
+      <button class="tab-btn" data-cat="coches" data-i18n="gallery.tabCoches">Coches</button>
+      <button class="tab-btn" data-cat="motos" data-i18n="gallery.tabMotos">Motos</button>
+      <button class="tab-btn" data-cat="marine" data-i18n="gallery.tabMarine">Náutica</button>
+    </div>
+    <div class="gallery-count mono"><span id="gallery-count">0</span> <span data-i18n="gallery.projects">proyectos</span></div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY GRID ===================== -->
+<section style="padding-top:36px;">
+  <div class="container">
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-text" style="color:#fff;margin-bottom:10px;">Coches Benejúzar</div>
+        <p style="font-size:13px;max-width:320px;" data-i18n="footer.tagline">Tapicería de precisión para proyectos de automoción, moto y náutica.</p>
+      </div>
+      <div class="footer-legal">
+        <a href="../aviso-legal.html" data-i18n="footer.legal">Aviso Legal</a>
+        <a href="../politica-de-privacidad.html" data-i18n="footer.privacy">Política de Privacidad</a>
+        <a href="../politica-de-cookies.html" data-i18n="footer.cookies">Política de Cookies</a>
+        <a href="../terminos-y-condiciones.html" data-i18n="footer.terms">Términos y Condiciones</a>
+        <a href="../declaracion-de-accesibilidad.html" data-i18n="footer.accessebility">Declaración de Accesibilidad</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="spanYear"></span> Coches Benejúzar. All Rights Reserved.</div>
+      <span data-i18n="footer.made">Benejúzar, Alicante, España</span>
+    </div>
+  </div>
+</footer>
+<script>
+document.getElementById("spanYear").textContent = new Date().getFullYear();
+</script>
+
+<!-- ===================== WHATSAPP FLOAT ===================== -->
+<a class="whatsapp-float" href="https://wa.me/34693461811" target="_blank" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1.1 2.6c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.5-.3z"></path></svg>
+</a>
+
+<!-- ===================== LIGHTBOX MODAL ===================== -->
+<div class="lightbox-modal" id="lightbox-modal">
+  <div class="lightbox-content">
+    <img class="lightbox-image" id="lightbox-image" src="" alt="">
+    <div class="lightbox-close" id="lightbox-close">✕</div>
+    <div class="lightbox-nav lightbox-prev" id="lightbox-prev">❮</div>
+    <div class="lightbox-nav lightbox-next" id="lightbox-next">❯</div>
+    <div class="lightbox-counter"><span id="lightbox-current">1</span> / <span id="lightbox-total">1</span></div>
+  </div>
+</div>
+
+<!-- ===================== COOKIE BANNER ===================== -->
+<div class="cookie-banner" id="cookie-banner">
+  <div class="container cookie-inner">
+    <p data-i18n="cookie.text">Usamos cookies para mejorar tu experiencia y analizar el tráfico del sitio. Puedes aceptar o rechazar las cookies no esenciales.</p>
+    <div class="cookie-actions">
+      <button class="decline" id="cookie-decline" data-i18n="cookie.decline">Rechazar</button>
+      <button class="accept" id="cookie-accept" data-i18n="cookie.accept">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const I18N = {};
+</script>
+<script src="../i18n-data.js"></script>
+<script>window.CB_LOCKED_LANG = "es";</script><script src="../app.js"></script>
+<script>window.CB_IMG_BASE = "../";</script><script src="../gallery.js"></script>
+
+
+</body></html>
