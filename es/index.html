@@ -185,6 +185,9 @@ header:not(.scrolled) .nav-links a{color:#fff;}
 }
 header:not(.scrolled) .lang-switch button{color:#fff;}
 .lang-switch button.active{opacity:1;border-color:currentColor;border-radius:1px;}
+/* Táctil: sin retardo de doble toque y zona de pulsación de 44px de alto en móvil */
+.lang-switch button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+@media (max-width:900px){.lang-switch button{min-height:44px;padding:12px 9px;margin:-4px 0;}}
 .nav-cta{
   font-size:12px;letter-spacing:.08em;text-transform:uppercase;
   padding:11px 22px;border:1px solid var(--navy);color:var(--navy);
