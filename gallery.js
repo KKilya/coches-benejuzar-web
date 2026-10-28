@@ -47,7 +47,7 @@
   }
 
   function activateCategory(category){
-    if(CATEGORIES.indexOf(category) === -1) category = 'coches';
+    if(CATEGORIES.indexOf(category) === -1) category = 'marine'; // náutica por defecto (prioridad del negocio)
     tabs.forEach(t => t.classList.toggle('active', t.dataset.cat === category));
     renderGrid(category);
   }

@@ -85,6 +85,10 @@
       const key = el.getAttribute('data-i18n-content');
       if(dict[key]) el.setAttribute('content', dict[key]);
     });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-aria');
+      if(dict[key]) el.setAttribute('aria-label', dict[key]);
+    });
     document.documentElement.setAttribute('lang', lang);
     langButtons.forEach(b=>b.classList.toggle('active', b.dataset.lang === lang));
     try{ localStorage.setItem('cb_lang', lang); }catch(e){}
@@ -122,17 +126,20 @@
   /* ============ MOBILE NAV (burger) ============ */
   const burger = document.querySelector('.burger');
   const navLinks = document.querySelector('.nav-links');
-  burger.addEventListener('click', ()=>{
-    const isOpen = navLinks.style.display === 'flex';
-    if(isOpen){
-      navLinks.style.display = '';
-    } else {
+  function setMenu(open){
+    if(open){
       navLinks.style.cssText = 'display:flex;position:fixed;top:70px;left:0;right:0;background:#FAF9F6;flex-direction:column;padding:24px 32px;gap:20px;box-shadow:0 8px 20px rgba(0,0,0,.08);';
       navLinks.querySelectorAll('a').forEach(a=>a.style.color = '#0B1F3A');
+    } else {
+      navLinks.style.display = '';
     }
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  burger.addEventListener('click', ()=>{
+    setMenu(navLinks.style.display !== 'flex');
   });
   navLinks.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click', ()=>{ if(window.innerWidth <= 900){ navLinks.style.display=''; } });
+    a.addEventListener('click', ()=>{ if(window.innerWidth <= 900){ setMenu(false); } });
   });
 
 })();
