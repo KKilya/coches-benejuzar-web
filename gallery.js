@@ -20,36 +20,50 @@
   const countLabel = document.getElementById('gallery-count');
   const lightboxModal = document.getElementById('lightbox-modal');
   const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxCaption = document.getElementById('lightbox-caption');
   const lightboxClose = document.getElementById('lightbox-close');
   const lightboxPrev = document.getElementById('lightbox-prev');
   const lightboxNext = document.getElementById('lightbox-next');
   const lightboxCurrent = document.getElementById('lightbox-current');
   const lightboxTotal = document.getElementById('lightbox-total');
 
+  const LANG = window.CB_LOCKED_LANG || 'en';
+  const descriptionOf = (num) => (GALLERY_DESCRIPTIONS[num] && GALLERY_DESCRIPTIONS[num][LANG]) || '';
+
   let activeList = [];
   let lightboxPos = -1;
 
-  function renderGrid(category){
-    activeList = GALLERY_DATA[category] || [];
-    grid.innerHTML = '';
-    activeList.forEach((num, idx) => {
-      const item = document.createElement('div');
-      item.className = 'gallery-item';
-      const img = document.createElement('img');
-      img.src = IMG_BASE + 'images/' + num + '.jpg';
-      img.alt = 'Proyecto ' + num;
-      img.loading = 'lazy';
-      item.appendChild(img);
-      item.addEventListener('click', () => openLightbox(idx));
-      grid.appendChild(item);
+  /* Se pintan las tres categorías y las pestañas solo muestran u ocultan: Google
+     no pulsa pestañas, y así ve las descripciones de coches y motos. */
+  function renderGrid(){
+    CATEGORIES.forEach((category) => {
+      GALLERY_DATA[category].forEach((num, idx) => {
+        const item = document.createElement('figure');
+        item.className = 'gallery-item is-hidden';
+        item.dataset.cat = category;
+        const thumb = document.createElement('div');
+        thumb.className = 'gallery-thumb';
+        const img = document.createElement('img');
+        img.src = IMG_BASE + 'images/' + num + '.jpg';
+        img.alt = descriptionOf(num);
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+        const caption = document.createElement('figcaption');
+        caption.textContent = descriptionOf(num);
+        item.appendChild(thumb);
+        item.appendChild(caption);
+        item.addEventListener('click', () => openLightbox(idx));
+        grid.appendChild(item);
+      });
     });
-    if(countLabel) countLabel.textContent = activeList.length;
   }
 
   function activateCategory(category){
     if(CATEGORIES.indexOf(category) === -1) category = 'marine'; // náutica por defecto (prioridad del negocio)
     tabs.forEach(t => t.classList.toggle('active', t.dataset.cat === category));
-    renderGrid(category);
+    activeList = GALLERY_DATA[category];
+    grid.querySelectorAll('.gallery-item').forEach(item => item.classList.toggle('is-hidden', item.dataset.cat !== category));
+    if(countLabel) countLabel.textContent = activeList.length;
   }
 
   tabs.forEach(t => {
@@ -63,7 +77,8 @@
     lightboxPos = idx;
     const num = activeList[idx];
     lightboxImage.src = IMG_BASE + 'images/' + num + '.jpg';
-    lightboxImage.alt = 'Proyecto ' + num;
+    lightboxImage.alt = descriptionOf(num);
+    lightboxCaption.textContent = descriptionOf(num);
     lightboxCurrent.textContent = idx + 1;
     lightboxTotal.textContent = activeList.length;
     lightboxModal.classList.add('open');
@@ -87,6 +102,7 @@
     if(e.key === 'ArrowLeft') showPrevImage();
   });
 
+  renderGrid();
   const initialCategory = (location.hash || '').replace('#', '');
   activateCategory(initialCategory);
 

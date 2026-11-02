@@ -393,13 +393,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 
 /* ---------- WHATSAPP FLOAT ---------- */
 .whatsapp-float{
-  position:fixed;bottom:28px;right:28px;z-index:900;
-  width:58px;height:58px;border-radius:50%;background:#0B1F3A;
+  position:fixed;bottom:28px;right:28px;z-index:2100;
+  width:58px;height:58px;border-radius:50%;background:#25D366;
   display:flex;align-items:center;justify-content:center;color:#fff;
-  box-shadow:0 8px 24px rgba(11,31,58,.35);
-  transition:transform .3s var(--ease);
+  box-shadow:0 8px 24px rgba(37,211,102,.45),0 2px 8px rgba(0,0,0,.25);
+  transition:transform .3s var(--ease),bottom .3s var(--ease);
 }
 .whatsapp-float:hover{transform:scale(1.08);}
+@media (max-width:560px){.whatsapp-float{right:16px;bottom:16px;width:54px;height:54px;}}
 
 /* ---------- COOKIE BANNER ---------- */
 .cookie-banner{
@@ -449,6 +450,60 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 /* Móviles muy estrechos: solo el monograma CB para que quepan idioma y menú */
 @media (max-width:350px){
   header .logo-text{display:none;}
+}
+
+/* ---------- BOTÓN VERDE DE WHATSAPP ("MANDAR VÍDEO") ---------- */
+.btn{justify-content:center;}
+.btn-wa{background:#25D366;color:#fff;font-weight:600;}
+.btn-wa:hover{background:#1EBE5A;}
+.btn-wa svg{flex-shrink:0;}
+/* ---------- LLAMADA FINAL ---------- */
+.cta-section{background:var(--navy);color:#fff;padding:90px 0;}
+.cta-section h2{color:#fff;font-size:clamp(28px,4vw,42px);font-weight:400;line-height:1.15;margin-bottom:12px;}
+.cta-section p{color:rgba(255,255,255,.78);font-size:16px;}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+@media (max-width:560px){.cta-section .hero-actions{width:100%;}.cta-section .btn{flex:1 1 100%;}}
+
+/* ---------- VENTAJAS BAJO EL HERO ---------- */
+.trust-strip{background:var(--navy-deep);color:rgba(255,255,255,.85);padding:22px 0;}
+.trust-strip ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:18px 28px;}
+.trust-strip li{font-size:13px;line-height:1.4;padding-left:16px;border-left:1px solid var(--pewter);}
+/* ---------- PROBLEMAS ---------- */
+.section-lead{font-size:17px;max-width:640px;margin:-40px 0 48px;}
+.problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.problem-card{display:flex;flex-direction:column;background:var(--white);padding:32px 26px;transition:background .3s var(--ease);}
+.problem-card:hover{background:var(--white-soft);}
+.problem-card h3{font-size:19px;line-height:1.25;margin-bottom:10px;}
+.problem-card p{font-size:14px;margin-bottom:18px;}
+.problem-link{margin-top:auto;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#128C4A;font-weight:600;}
+.section-cta{margin-top:36px;}
+/* ---------- CON QUÉ TRABAJAMOS / ZONAS ---------- */
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+.work-grid h3{font-size:22px;margin-bottom:18px;}
+.chip-list{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+.chip-list li{font-size:13px;padding:7px 13px;border:1px solid var(--line);background:var(--white);color:var(--navy);}
+.chip-list li.brand{font-family:'IBM Plex Mono',monospace;font-size:12px;}
+.section-note{margin-top:32px;font-size:15px;}
+/* ---------- PREGUNTAS FRECUENTES ---------- */
+.faq-list{max-width:820px;border-top:1px solid var(--line);}
+.faq-list details{border-bottom:1px solid var(--line);}
+.faq-list summary{cursor:pointer;padding:20px 28px 20px 0;font-family:'Fraunces',serif;font-size:19px;color:var(--navy);list-style:none;position:relative;}
+.faq-list summary::-webkit-details-marker{display:none;}
+.faq-list summary::after{content:'+';position:absolute;right:4px;top:18px;font-size:22px;color:var(--pewter);}
+.faq-list details[open] summary::after{content:'–';}
+.faq-list p{padding:0 28px 22px 0;font-size:15px;}
+@media (max-width:900px){
+  .trust-strip ul{grid-template-columns:1fr 1fr;}
+  .problem-grid{grid-template-columns:1fr 1fr;}
+  .work-grid{grid-template-columns:1fr;}
+  .section-lead{margin-top:-40px;}
+}
+@media (max-width:560px){
+  .problem-grid{grid-template-columns:1fr;}
+  /* Tres botones en el hero: la portada crece en vez de cortarlos */
+  .hero{height:auto;min-height:100svh;padding-top:110px !important;}
+  .hero-actions{gap:12px;}
+  .hero-actions .btn{flex:1 1 100%;}
 }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -522,9 +577,74 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
     <h1 data-i18n="hero.title">Tapicería Náutica y de Automoción Premium</h1>
     <p class="lead" data-i18n="hero.subtitle">Tapicería de barcos y yates, biminis, sprayhoods y fundas a medida, y también interiores de coches y motos. Más de 10 años de experiencia.</p>
     <div class="hero-actions">
+      <a class="btn btn-wa" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1.1 2.6c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.5-.3z"/></svg><span data-i18n="video.btn">Mandar vídeo</span></a>
       <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Pide Presupuesto</a>
-      <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Contáctanos</a>
+      <a class="btn btn-outline" href="tel:+34693461811" data-i18n="hero.cta2">Llamar ahora</a>
     </div>
+  </div>
+</section>
+
+<!-- ===================== VENTAJAS ===================== -->
+<div class="trust-strip">
+  <ul class="container">
+      <li data-i18n="strip.1">Presupuesto gratis y sin compromiso</li>
+      <li data-i18n="strip.2">Cada trabajo hecho a medida</li>
+      <li data-i18n="strip.3">Medición digital Proliner</li>
+      <li data-i18n="strip.4">Hablamos español, inglés y ruso</li>
+  </ul>
+</div>
+
+<!-- ===================== PROBLEMAS + VÍDEO ===================== -->
+<section id="video">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="stitch-line"></span><span data-i18n="prob.eyebrow">Cuéntanos qué pasa</span></div>
+      <h2 data-i18n="prob.title">¿Te suena alguno de estos casos? Mándanos un vídeo</h2>
+    </div>
+    <p class="section-lead reveal" data-i18n="prob.lead">Un vídeo corto nos deja ver el trabajo antes de que te desplaces. Pulsa el botón, se abre WhatsApp con el mensaje preparado y solo tienes que adjuntar el vídeo.</p>
+    <div class="problem-grid reveal">
+      <a class="problem-card" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener">
+        <h3 data-i18n="prob.c1.t">Cojines de barco descoloridos o agrietados</h3>
+        <p data-i18n="prob.c1.d">El sol y la sal han desgastado asientos o soláriums.</p>
+        <span class="problem-link"><span data-i18n="video.btn">Mandar vídeo</span> →</span>
+      </a>
+      <a class="problem-card" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener">
+        <h3 data-i18n="prob.c2.t">Bimini o sprayhood en mal estado</h3>
+        <p data-i18n="prob.c2.d">Lona rota, descolorida o que ya no ajusta.</p>
+        <span class="problem-link"><span data-i18n="video.btn">Mandar vídeo</span> →</span>
+      </a>
+      <a class="problem-card" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener">
+        <h3 data-i18n="prob.c3.t">Ventanas del cerramiento opacas</h3>
+        <p data-i18n="prob.c3.d">Paneles transparentes amarillentos o agrietados.</p>
+        <span class="problem-link"><span data-i18n="video.btn">Mandar vídeo</span> →</span>
+      </a>
+      <a class="problem-card" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener">
+        <h3 data-i18n="prob.c4.t">Una funda que no ajusta</h3>
+        <p data-i18n="prob.c4.d">Tu barco o moto de agua necesita una funda a medida.</p>
+        <span class="problem-link"><span data-i18n="video.btn">Mandar vídeo</span> →</span>
+      </a>
+      <a class="problem-card" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener">
+        <h3 data-i18n="prob.c5.t">Asientos de coche rotos o gastados</h3>
+        <p data-i18n="prob.c5.d">Piel o tela rota, agrietada o simplemente cansada.</p>
+        <span class="problem-link"><span data-i18n="video.btn">Mandar vídeo</span> →</span>
+      </a>
+      <a class="problem-card" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener">
+        <h3 data-i18n="prob.c6.t">Techo interior caído</h3>
+        <p data-i18n="prob.c6.d">El guarnecido del techo se ha despegado y cuelga.</p>
+        <span class="problem-link"><span data-i18n="video.btn">Mandar vídeo</span> →</span>
+      </a>
+      <a class="problem-card" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener">
+        <h3 data-i18n="prob.c7.t">Volante desgastado</h3>
+        <p data-i18n="prob.c7.d">Aro brillante o pelado, listo para forrar de nuevo.</p>
+        <span class="problem-link"><span data-i18n="video.btn">Mandar vídeo</span> →</span>
+      </a>
+      <a class="problem-card" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener">
+        <h3 data-i18n="prob.c8.t">Asiento de moto dañado</h3>
+        <p data-i18n="prob.c8.d">Rajado, incómodo o quieres un diseño propio.</p>
+        <span class="problem-link"><span data-i18n="video.btn">Mandar vídeo</span> →</span>
+      </a>
+    </div>
+    <div class="section-cta reveal"><a class="btn btn-wa" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1.1 2.6c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.5-.3z"/></svg><span data-i18n="video.btn">Mandar vídeo</span></a></div>
   </div>
 </section>
 
@@ -583,6 +703,60 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
         <p data-i18n="services.card2.desc">Asientos personalizados, reparaciones y acabados a medida.</p>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- ===================== CON QUÉ TRABAJAMOS ===================== -->
+<section id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="stitch-line"></span><span data-i18n="work.eyebrow">Con qué trabajamos</span></div>
+      <h2 data-i18n="work.title">Barcos, coches y motos que pasan por nuestro taller</h2>
+    </div>
+    <div class="work-grid reveal">
+      <div>
+        <h3 data-i18n="work.boats">Barcos</h3>
+        <ul class="chip-list">
+          <li data-i18n="work.b1">Veleros</li>
+          <li data-i18n="work.b2">Yates a motor y flybridge</li>
+          <li data-i18n="work.b3">Lanchas</li>
+          <li data-i18n="work.b4">Motos de agua</li>
+          <li class="brand">Xp 55</li>
+          <li class="brand">Doral</li>
+          <li class="brand">Sunseeker</li>
+          <li class="brand">MasterCraft</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="work.cars">Coches</h3>
+        <ul class="chip-list">
+          <li data-i18n="work.c1">Descapotables</li>
+          <li data-i18n="work.c2">Coches clásicos</li>
+          <li data-i18n="work.c3">Deportivos</li>
+          <li data-i18n="work.c4">Todoterrenos</li>
+          <li class="brand">Fiat 500</li>
+          <li class="brand">BMW</li>
+          <li class="brand">Mercedes SLK</li>
+          <li class="brand">Saab 9-3</li>
+          <li class="brand">Nissan 350Z</li>
+          <li class="brand">Citroën Traction Avant</li>
+          <li class="brand">Mini</li>
+          <li class="brand">Jeep</li>
+          <li class="brand">Smart</li>
+          <li class="brand">Volkswagen</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="work.motos">Motos</h3>
+        <ul class="chip-list">
+          <li data-i18n="work.m1">Café racer</li>
+          <li data-i18n="work.m2">Custom</li>
+          <li data-i18n="work.m3">Enduro</li>
+          <li class="brand">GasGas</li>
+        </ul>
+      </div>
+    </div>
+    <p class="section-note reveal" data-i18n="work.note">¿El tuyo no aparece? Mándanos un vídeo y le echamos un vistazo.</p>
   </div>
 </section>
 
@@ -666,8 +840,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
     <div class="process-grid reveal">
       <div class="process-step">
         <div class="p-num">01</div>
-        <h4 data-i18n="process.s1.title">Contacto</h4>
-        <p data-i18n="process.s1.desc">El cliente explica el proyecto.</p>
+        <h4 data-i18n="process.s1.title">Manda un vídeo</h4>
+        <p data-i18n="process.s1.desc">Mándanos un vídeo corto por WhatsApp o cuéntanos tu proyecto.</p>
       </div>
       <div class="process-step">
         <div class="p-num">02</div>
@@ -684,6 +858,79 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
         <h4 data-i18n="process.s4.title">Entrega Final</h4>
         <p data-i18n="process.s4.desc">Acabado perfecto y control de calidad.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ZONAS ===================== -->
+<section id="area" style="background:var(--white-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="stitch-line"></span><span data-i18n="area.eyebrow">Dónde estamos</span></div>
+      <h2 data-i18n="area.title">Nuestro taller está en Benejúzar y atendemos toda la zona</h2>
+    </div>
+    <ul class="chip-list reveal">
+      <li class="brand">Benejúzar</li>
+      <li class="brand">Orihuela</li>
+      <li class="brand">Torrevieja</li>
+      <li class="brand">Vega Baja</li>
+      <li class="brand">Alicante</li>
+      <li class="brand">Murcia</li>
+    </ul>
+    <p class="section-note reveal" data-i18n="area.note">¿Estás en otro sitio? Mándanos un vídeo y te decimos si podemos ayudarte.</p>
+  </div>
+</section>
+
+<!-- ===================== PREGUNTAS FRECUENTES ===================== -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="stitch-line"></span><span data-i18n="faq.eyebrow">Preguntas</span></div>
+      <h2 data-i18n="faq.title">Preguntas frecuentes</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary data-i18n="faq.q1">¿Cuánto cuesta?</summary>
+        <p data-i18n="faq.a1">Cada proyecto es único, así que el precio se calcula de forma individual según los materiales, la complejidad, las dimensiones y la mano de obra. El presupuesto es gratis y sin compromiso.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q2">¿Por qué mandar un vídeo?</summary>
+        <p data-i18n="faq.a2">Nos deja ver el trabajo, su tamaño y su estado antes de que te desplaces. A partir de ahí te decimos cómo lo haríamos y qué necesitamos para el presupuesto.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q3">¿Cómo mando el vídeo?</summary>
+        <p data-i18n="faq.a3">Pulsa «Mandar vídeo». Se abre WhatsApp con el mensaje preparado: completa qué tienes y qué necesitas, y adjunta el vídeo desde la galería del móvil.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q4">¿Qué podéis tapizar?</summary>
+        <p data-i18n="faq.a4">Barcos, yates y motos de agua (asientos, cojines, biminis, sprayhoods y fundas), interiores de coche (asientos, techos y volantes) y asientos de moto.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q5">¿Qué materiales usáis?</summary>
+        <p data-i18n="faq.a5">Tejidos náuticos resistentes a los rayos UV y al agua salada, piel, alcántara y otros materiales premium, elegidos contigo para cada trabajo.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q6">¿Cómo aseguráis que ajuste bien?</summary>
+        <p data-i18n="faq.a6">El sistema de medición digital Proliner capta las medidas exactas y las convierte en un patrón digital antes de hacer el primer corte.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q7">¿En qué idiomas atendéis?</summary>
+        <p data-i18n="faq.a7">Te atendemos en español, inglés o ruso.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LLAMADA FINAL ===================== -->
+<section class="cta-section">
+  <div class="container cta-inner reveal">
+    <div>
+      <h2 data-i18n="cta.title">Empieza con un vídeo corto</h2>
+      <p data-i18n="cta.text">Enséñanos qué hay que hacer y seguimos desde ahí.</p>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-wa" href="https://wa.me/34693461811?text=Hola%2C%20quiero%20mandaros%20un%20v%C3%ADdeo%20para%20pedir%20presupuesto.%20Barco%2C%20coche%20o%20moto%20y%20modelo%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Qu%C3%A9%20necesito%3A%20%5BESCRIBIR%20AQU%C3%8D%5D.%20Adjunto%20el%20v%C3%ADdeo%20ahora." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1.1 2.6c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.5-.3z"/></svg><span data-i18n="video.btn">Mandar vídeo</span></a>
+      <a class="btn btn-outline" href="tel:+34693461811" data-i18n="hero.cta2">Llamar ahora</a>
     </div>
   </div>
 </section>
@@ -758,7 +1005,7 @@ document.getElementById("spanYear").textContent = new Date().getFullYear();
 </script>
 
 <!-- ===================== WHATSAPP FLOAT ===================== -->
-<a class="whatsapp-float" href="https://wa.me/34693461811" target="_blank" aria-label="WhatsApp">
+<a class="whatsapp-float" href="https://wa.me/34693461811?text=Hola%2C%20tengo%20una%20consulta%20sobre%20un%20trabajo%20de%20tapicer%C3%ADa." target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1.1 2.6c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.5-.3z"></path></svg>
 </a>
 
@@ -777,8 +1024,8 @@ document.getElementById("spanYear").textContent = new Date().getFullYear();
 /* ============ i18n ============ */
 const I18N = {};
 </script>
-<script src="../i18n-data.js?v=20261028"></script>
-<script>window.CB_LOCKED_LANG = "es";</script><script src="../app.js?v=20261028"></script>
+<script src="../i18n-data.js?v=20261102"></script>
+<script>window.CB_LOCKED_LANG = "es";</script><script src="../app.js?v=20261102"></script>
 
 
 </body></html>

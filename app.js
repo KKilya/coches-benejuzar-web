@@ -62,12 +62,20 @@
   function getCookieConsent(){
     try{ return document.cookie.split('; ').find(row=>row.startsWith(COOKIE_KEY+'=')); }catch(e){ return null; }
   }
+  // El icono de WhatsApp sube mientras se ve el aviso, para no tapar sus botones
+  const whatsappFloat = document.querySelector('.whatsapp-float');
+  function placeWhatsapp(){
+    if(!whatsappFloat) return;
+    whatsappFloat.style.bottom = cookieBanner.classList.contains('show') ? (cookieBanner.offsetHeight + 16) + 'px' : '';
+  }
+  window.addEventListener('resize', placeWhatsapp);
   if(!getCookieConsent()){
-    setTimeout(()=> cookieBanner.classList.add('show'), 900);
+    setTimeout(()=>{ cookieBanner.classList.add('show'); placeWhatsapp(); }, 900);
   }
   function setConsent(value){
     document.cookie = COOKIE_KEY + '=' + value + '; max-age=' + (60*60*24*180) + '; path=/';
     cookieBanner.classList.remove('show');
+    placeWhatsapp();
   }
   document.getElementById('cookie-accept').addEventListener('click', ()=> setConsent('accepted'));
   document.getElementById('cookie-decline').addEventListener('click', ()=> setConsent('declined'));
