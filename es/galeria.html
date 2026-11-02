@@ -6,8 +6,8 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="gallery.meta.title">Galería de Trabajos — Barcos, Coches y Motos | CB Tapicería Náutica y Automoción</title>
-<meta name="description" data-i18n-content="gallery.meta.description" content="Descubre nuestros trabajos de tapicería por categoría: náutica, coches y motos en Benejúzar, Alicante. Más de 10 años de artesanía a medida.">
+<title data-i18n="gallery.meta.title">Trabajos de tapicería de barcos, coches y motos en Alicante | Galería CB</title>
+<meta name="description" data-i18n-content="gallery.meta.description" content="Trabajos reales de tapicería: biminis, sprayhoods, fundas y colchonetas de barco, asientos de coche, volantes en piel y asientos de moto, de nuestro taller en Benejúzar, Alicante.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="CB Tapicería Náutica y Automoción">
 <link rel="canonical" href="https://cbdeteiling.es/es/galeria.html">
@@ -15,8 +15,8 @@
 
 
 
-<meta property="og:title" content="Galería de Trabajos — Barcos, Coches y Motos | CB Tapicería Náutica y Automoción">
-<meta property="og:description" content="Descubre nuestros trabajos de tapicería por categoría: náutica, coches y motos en Benejúzar, Alicante. Más de 10 años de artesanía a medida.">
+<meta property="og:title" content="Trabajos de tapicería de barcos, coches y motos en Alicante | Galería CB">
+<meta property="og:description" content="Trabajos reales de tapicería: biminis, sprayhoods, fundas y colchonetas de barco, asientos de coche, volantes en piel y asientos de moto, de nuestro taller en Benejúzar, Alicante.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cbdeteiling.es/es/galeria.html">
 <meta property="og:image" content="https://cbdeteiling.es/hero/1.jpg">
@@ -259,6 +259,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 }
 
 /* ---------- BOTÓN VERDE DE WHATSAPP ("MANDAR VÍDEO") ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;transition:all .35s var(--ease);}
 .btn{justify-content:center;}
 .btn-wa{background:#25D366;color:#fff;font-weight:600;}
 .btn-wa:hover{background:#1EBE5A;}
@@ -269,6 +270,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 .cta-section p{color:rgba(255,255,255,.78);font-size:16px;}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
 @media (max-width:560px){.cta-section .hero-actions{width:100%;}.cta-section .btn{flex:1 1 100%;}}
+
+/* ---------- ENLACES A SERVICIOS EN EL PIE ---------- */
+.footer-services{display:flex;flex-wrap:wrap;gap:10px 22px;padding:0 0 26px;font-size:13px;}
+.footer-services a{color:rgba(255,255,255,.75);}
+.footer-services a:hover{color:#fff;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SZQTPR0NX5"></script>
@@ -319,7 +325,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 <section class="gallery-hero">
   <div class="container">
     <div class="eyebrow"><span class="stitch-line"></span><span data-i18n="gallery.eyebrow">Galería</span></div>
-    <h1 data-i18n="gallery.title">Proyectos seleccionados</h1>
+    <h1 data-i18n="gallery.title">Trabajos de tapicería de barcos, coches y motos</h1>
     <p class="lead" data-i18n="gallery.subtitle">Explora los proyectos realizados por categoría: tapicería náutica, de coches y de motos.</p>
     <div class="gallery-tabs" id="gallery-tabs">
       <button class="tab-btn" data-cat="marine" data-i18n="gallery.tabMarine">Náutica</button>
@@ -360,6 +366,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
         <a href="../declaracion-de-accesibilidad.html" data-i18n="footer.accessebility">Declaración de Accesibilidad</a>
       </div>
     </div>
+    <nav class="footer-services" aria-label="Servicios"><a href="tapiceria-nautica-alicante.html">Tapicería náutica</a> <a href="biminis-sprayhoods-alicante.html">Biminis y sprayhoods</a> <a href="fundas-barco-a-medida.html">Fundas de barco</a> <a href="colchonetas-cojines-barco.html">Colchonetas y cojines</a> <a href="tapiceria-coches-alicante.html">Tapicería de coches</a> <a href="forrar-volante-piel.html">Volantes en piel</a> <a href="tapizar-asiento-moto.html">Asientos de moto</a> <a href="tapizar-asiento-moto-de-agua.html">Asientos de moto de agua</a></nav>
     <div class="footer-bottom">
       <div>© <span id="spanYear"></span> CB · <span data-i18n="footer.rights">Todos los derechos reservados.</span></div>
       <span data-i18n="footer.made">Benejúzar, Alicante, España</span>
@@ -401,10 +408,10 @@ document.getElementById("spanYear").textContent = new Date().getFullYear();
 <script>
 const I18N = {};
 </script>
-<script src="../i18n-data.js?v=20261102"></script>
-<script>window.CB_LOCKED_LANG = "es";</script><script src="../app.js?v=20261102"></script>
-<script src="../gallery-descriptions.js?v=20261102"></script>
-<script>window.CB_IMG_BASE = "../";</script><script src="../gallery.js?v=20261102"></script>
+<script src="../i18n-data.js?v=20261102b"></script>
+<script>window.CB_LOCKED_LANG = "es";</script><script src="../app.js?v=20261102b"></script>
+<script src="../gallery-descriptions.js?v=20261102b"></script>
+<script>window.CB_IMG_BASE = "../";</script><script src="../gallery.js?v=20261102b"></script>
 
 
 </body></html>

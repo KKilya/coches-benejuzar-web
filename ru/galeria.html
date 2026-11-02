@@ -6,8 +6,8 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="gallery.meta.title">Галерея работ — яхты, авто и мото | CB — обивка яхт и автомобилей</title>
-<meta name="description" data-i18n-content="gallery.meta.description" content="Смотрите наши работы по категориям: обивка яхт, автомобилей и мотоциклов в Бенехусаре, Аликанте. Более 10 лет индивидуального мастерства.">
+<title data-i18n="gallery.meta.title">Работы по обивке яхт, авто и мотоциклов в Аликанте | Галерея CB</title>
+<meta name="description" data-i18n-content="gallery.meta.description" content="Реальные работы: бимини, спрейхуды, чехлы и подушки для лодок, сиденья авто, кожаные рули и сиденья мотоциклов из нашей мастерской в Бенехусаре, Аликанте.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="CB Tapicería Náutica y Automoción">
 <link rel="canonical" href="https://cbdeteiling.es/ru/galeria.html">
@@ -15,8 +15,8 @@
 
 
 
-<meta property="og:title" content="Галерея работ — яхты, авто и мото | CB — обивка яхт и автомобилей">
-<meta property="og:description" content="Смотрите наши работы по категориям: обивка яхт, автомобилей и мотоциклов в Бенехусаре, Аликанте. Более 10 лет индивидуального мастерства.">
+<meta property="og:title" content="Работы по обивке яхт, авто и мотоциклов в Аликанте | Галерея CB">
+<meta property="og:description" content="Реальные работы: бимини, спрейхуды, чехлы и подушки для лодок, сиденья авто, кожаные рули и сиденья мотоциклов из нашей мастерской в Бенехусаре, Аликанте.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cbdeteiling.es/ru/galeria.html">
 <meta property="og:image" content="https://cbdeteiling.es/hero/1.jpg">
@@ -259,6 +259,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 }
 
 /* ---------- BOTÓN VERDE DE WHATSAPP ("MANDAR VÍDEO") ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;transition:all .35s var(--ease);}
 .btn{justify-content:center;}
 .btn-wa{background:#25D366;color:#fff;font-weight:600;}
 .btn-wa:hover{background:#1EBE5A;}
@@ -269,6 +270,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 .cta-section p{color:rgba(255,255,255,.78);font-size:16px;}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
 @media (max-width:560px){.cta-section .hero-actions{width:100%;}.cta-section .btn{flex:1 1 100%;}}
+
+/* ---------- ENLACES A SERVICIOS EN EL PIE ---------- */
+.footer-services{display:flex;flex-wrap:wrap;gap:10px 22px;padding:0 0 26px;font-size:13px;}
+.footer-services a{color:rgba(255,255,255,.75);}
+.footer-services a:hover{color:#fff;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SZQTPR0NX5"></script>
@@ -319,7 +325,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 <section class="gallery-hero">
   <div class="container">
     <div class="eyebrow"><span class="stitch-line"></span><span data-i18n="gallery.eyebrow">Галерея</span></div>
-    <h1 data-i18n="gallery.title">Избранные проекты</h1>
+    <h1 data-i18n="gallery.title">Работы по обивке яхт, автомобилей и мотоциклов</h1>
     <p class="lead" data-i18n="gallery.subtitle">Просмотрите выполненные проекты по категориям: морская обивка, автомобили и мотоциклы.</p>
     <div class="gallery-tabs" id="gallery-tabs">
       <button class="tab-btn" data-cat="marine" data-i18n="gallery.tabMarine">Морская</button>
@@ -360,6 +366,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
         <a href="../declaracion-de-accesibilidad.html" data-i18n="footer.accessebility">Декларация о доступности</a>
       </div>
     </div>
+    <nav class="footer-services" aria-label="Услуги"><a href="obivka-yaht-alikante.html">Обивка яхт</a> <a href="bimini-sprayhud-ispaniya.html">Бимини и спрейхуды</a> <a href="chehly-dlya-lodok.html">Чехлы для лодок</a> <a href="podushki-dlya-yahty.html">Подушки и лежаки</a> <a href="peretyazhka-salona-avto-alikante.html">Перетяжка салона</a> <a href="peretyazhka-rulya-kozhey.html">Перетяжка руля</a> <a href="peretyazhka-sideniya-motocikla.html">Сиденья мотоциклов</a> <a href="peretyazhka-sideniya-gidrotsikla.html">Сиденья гидроциклов</a></nav>
     <div class="footer-bottom">
       <div>© <span id="spanYear"></span> CB · <span data-i18n="footer.rights">Все права защищены.</span></div>
       <span data-i18n="footer.made">Бенехусар, Аликанте, Испания</span>
@@ -401,10 +408,10 @@ document.getElementById("spanYear").textContent = new Date().getFullYear();
 <script>
 const I18N = {};
 </script>
-<script src="../i18n-data.js?v=20261102"></script>
-<script>window.CB_LOCKED_LANG = "ru";</script><script src="../app.js?v=20261102"></script>
-<script src="../gallery-descriptions.js?v=20261102"></script>
-<script>window.CB_IMG_BASE = "../";</script><script src="../gallery.js?v=20261102"></script>
+<script src="../i18n-data.js?v=20261102b"></script>
+<script>window.CB_LOCKED_LANG = "ru";</script><script src="../app.js?v=20261102b"></script>
+<script src="../gallery-descriptions.js?v=20261102b"></script>
+<script>window.CB_IMG_BASE = "../";</script><script src="../gallery.js?v=20261102b"></script>
 
 
 </body></html>

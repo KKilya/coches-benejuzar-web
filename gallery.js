@@ -44,7 +44,11 @@
         const thumb = document.createElement('div');
         thumb.className = 'gallery-thumb';
         const img = document.createElement('img');
-        img.src = IMG_BASE + 'images/' + num + '.jpg';
+        const file = GALLERY_DESCRIPTIONS[num].file;
+        img.src = IMG_BASE + 'images/' + file;
+        // El móvil descarga la miniatura; el visor abre la foto grande
+        img.srcset = IMG_BASE + 'images/thumbs/' + file + ' 640w, ' + IMG_BASE + 'images/' + file + ' 1600w';
+        img.sizes = '(max-width:900px) 50vw, 280px';
         img.alt = descriptionOf(num);
         img.loading = 'lazy';
         thumb.appendChild(img);
@@ -76,7 +80,7 @@
   function openLightbox(idx){
     lightboxPos = idx;
     const num = activeList[idx];
-    lightboxImage.src = IMG_BASE + 'images/' + num + '.jpg';
+    lightboxImage.src = IMG_BASE + 'images/' + GALLERY_DESCRIPTIONS[num].file;
     lightboxImage.alt = descriptionOf(num);
     lightboxCaption.textContent = descriptionOf(num);
     lightboxCurrent.textContent = idx + 1;

@@ -7,8 +7,8 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="gallery.meta.title">Upholstery Gallery — Boats, Cars &amp; Motorcycles | CB Marine &amp; Automotive Upholstery</title>
-<meta name="description" data-i18n-content="gallery.meta.description" content="Browse CB&#x27;s upholstery projects by category: marine, automotive and motorcycle upholstery in Benejúzar, Alicante.">
+<title data-i18n="gallery.meta.title">Boat, Car &amp; Motorcycle Upholstery Work in Alicante | CB Gallery</title>
+<meta name="description" data-i18n-content="gallery.meta.description" content="Real upholstery work: biminis, sprayhoods, boat covers and cushions, car seats, leather steering wheels and motorcycle seats, by our workshop in Benejúzar, Alicante.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="CB Tapicería Náutica y Automoción">
 <link rel="canonical" href="https://cbdeteiling.es/galeria.html">
@@ -16,8 +16,8 @@
 <link rel="alternate" hreflang="es" href="https://cbdeteiling.es/es/galeria.html">
 <link rel="alternate" hreflang="ru" href="https://cbdeteiling.es/ru/galeria.html">
 <link rel="alternate" hreflang="x-default" href="https://cbdeteiling.es/galeria.html">
-<meta property="og:title" content="Upholstery Gallery — Boats, Cars &amp; Motorcycles | CB Marine &amp; Automotive Upholstery">
-<meta property="og:description" content="Browse CB&#x27;s upholstery projects by category: marine, automotive and motorcycle upholstery in Benejúzar, Alicante.">
+<meta property="og:title" content="Boat, Car &amp; Motorcycle Upholstery Work in Alicante | CB Gallery">
+<meta property="og:description" content="Real upholstery work: biminis, sprayhoods, boat covers and cushions, car seats, leather steering wheels and motorcycle seats, by our workshop in Benejúzar, Alicante.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cbdeteiling.es/galeria.html">
 <meta property="og:image" content="https://cbdeteiling.es/hero/1.jpg">
@@ -260,6 +260,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 }
 
 /* ---------- BOTÓN VERDE DE WHATSAPP ("MANDAR VÍDEO") ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;transition:all .35s var(--ease);}
 .btn{justify-content:center;}
 .btn-wa{background:#25D366;color:#fff;font-weight:600;}
 .btn-wa:hover{background:#1EBE5A;}
@@ -270,6 +271,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 .cta-section p{color:rgba(255,255,255,.78);font-size:16px;}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
 @media (max-width:560px){.cta-section .hero-actions{width:100%;}.cta-section .btn{flex:1 1 100%;}}
+
+/* ---------- ENLACES A SERVICIOS EN EL PIE ---------- */
+.footer-services{display:flex;flex-wrap:wrap;gap:10px 22px;padding:0 0 26px;font-size:13px;}
+.footer-services a{color:rgba(255,255,255,.75);}
+.footer-services a:hover{color:#fff;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZQTPR0NX5"></script>
@@ -320,7 +326,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
 <section class="gallery-hero">
   <div class="container">
     <div class="eyebrow"><span class="stitch-line"></span><span data-i18n="gallery.eyebrow">Gallery</span></div>
-    <h1 data-i18n="gallery.title">Selected projects</h1>
+    <h1 data-i18n="gallery.title">Boat, car and motorcycle upholstery work</h1>
     <p class="lead" data-i18n="gallery.subtitle">Browse completed projects by category: marine, automotive and motorcycle upholstery.</p>
     <div class="gallery-tabs" id="gallery-tabs">
       <button class="tab-btn" data-cat="marine" data-i18n="gallery.tabMarine">Marine</button>
@@ -358,9 +364,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;}
         <a href="politica-de-privacidad.html" data-i18n="footer.privacy">Privacy Policy</a>
         <a href="politica-de-cookies.html" data-i18n="footer.cookies">Cookie Policy</a>
         <a href="terminos-y-condiciones.html" data-i18n="footer.terms">Terms & Conditions</a>
-        <a href="declaracion-de-accesibilidad.html" data-i18n="footer.accessebility">Accessebility Statement</a>
+        <a href="declaracion-de-accesibilidad.html" data-i18n="footer.accessebility">Accessibility Statement</a>
       </div>
     </div>
+    <nav class="footer-services" aria-label="Services"><a href="boat-upholstery-alicante.html">Marine upholstery</a> <a href="bimini-sprayhood-costa-blanca.html">Biminis and sprayhoods</a> <a href="custom-boat-covers.html">Boat covers</a> <a href="boat-cushions-sunbeds.html">Cushions and sunbeds</a> <a href="car-upholstery-alicante.html">Car upholstery</a> <a href="leather-steering-wheel-retrim.html">Steering wheels</a> <a href="motorcycle-seat-upholstery.html">Motorcycle seats</a> <a href="jet-ski-seat-upholstery.html">Jet ski seats</a></nav>
     <div class="footer-bottom">
       <div>© <span id="spanYear"></span> CB · <span data-i18n="footer.rights">All rights reserved.</span></div>
       <span data-i18n="footer.made">Benejúzar, Alicante, Spain</span>
@@ -402,10 +409,10 @@ document.getElementById("spanYear").textContent = new Date().getFullYear();
 <script>
 const I18N = {};
 </script>
-<script src="i18n-data.js?v=20261102"></script>
+<script src="i18n-data.js?v=20261102b"></script>
 <!-- La URL manda: esta página es siempre en inglés (no se usa el idioma guardado de otra visita) -->
-<script>window.CB_LOCKED_LANG = "en";</script><script src="app.js?v=20261102"></script>
-<script src="gallery-descriptions.js?v=20261102"></script>
-<script src="gallery.js?v=20261102"></script>
+<script>window.CB_LOCKED_LANG = "en";</script><script src="app.js?v=20261102b"></script>
+<script src="gallery-descriptions.js?v=20261102b"></script>
+<script src="gallery.js?v=20261102b"></script>
 </body>
 </html>
