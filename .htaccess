@@ -6,6 +6,12 @@
 # --- 1. Forzar HTTPS (redirección HTTP -> HTTPS) ---
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # Dominio antiguo: todo redirige a la misma página de cbdetailing.es
+  # (/.well-known/ se excluye para que el certificado del dominio antiguo se pueda renovar)
+  RewriteCond %{HTTP_HOST} ^(www\.)?cbdeteiling\.es$ [NC]
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule ^(.*)$ https://cbdetailing.es%{REQUEST_URI} [L,R=301]
+
   # Una sola dirección para Google: www redirige a la versión sin www
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [L,R=301]
