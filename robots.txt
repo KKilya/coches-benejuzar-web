@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://cbdeteiling.es/sitemap.xml
+Sitemap: https://cbdetailing.es/sitemap-cbdetailing.xml
