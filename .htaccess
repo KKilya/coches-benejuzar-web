@@ -18,6 +18,9 @@
 
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # La antigua página de entrada (/entrada/) ya no existe: se envía a la página principal
+  RewriteRule ^entrada(/.*)?$ https://cbdetailing.es/ [L,R=301]
 </IfModule>
 
 # --- 2. Security Headers HTTP ---
