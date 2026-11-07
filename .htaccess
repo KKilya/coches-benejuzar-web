@@ -23,6 +23,9 @@
   RewriteRule ^entrada(/.*)?$ https://cbdetailing.es/ [L,R=301]
 </IfModule>
 
+# --- Página de error propia (trilingüe) para direcciones que no existen ---
+ErrorDocument 404 /404.html
+
 # --- 2. Security Headers HTTP ---
 <IfModule mod_headers.c>
   # HSTS: fuerza HTTPS en el navegador durante 1 año, incluye subdominios
