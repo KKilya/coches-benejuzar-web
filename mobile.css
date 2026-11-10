@@ -63,7 +63,7 @@
   .m-bar .m-call{border:1px solid rgba(255,255,255,.45);color:#fff;}
   body.has-mbar{padding-bottom:calc(64px + env(safe-area-inset-bottom));}
   body.has-mbar .whatsapp-float{display:none;}
-  body.menu-open .m-bar,.m-menu-actions{display:none;}
+  body.menu-open .m-bar,body:has(.lightbox-modal.open) .m-bar{display:none;}
 
   /* Sin parallax en móvil (da tirones al hacer scroll) */
   .hero-scenes{transform:none !important;}
